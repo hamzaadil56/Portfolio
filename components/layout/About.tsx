@@ -23,9 +23,9 @@ const About = () => {
         <div className="justify-self-start">
           <p className="text-gray-400 leading-6 py-10">
             Hello! Muhammad Hamza here. I'm a chemical engineer and a web
-            developer. I'm passionate about programming and love to build
+            developer. I&apos;sm passionate about programming and love to build
             websites with attractive user interface and interactive animations.
-            Currently I'm completing my Bachelor's Degree in Chemical
+            Currently I&apos;m completing my Bachelor&apos;s Degree in Chemical
             Engineering from NED University of Engineering and Technology.{" "}
           </p>
           <p className="text-gray-400 my-2 leading-6">
