@@ -1,0 +1,32 @@
+.about::after {
+  content: "";
+  flex-grow: 1;
+  height: 0.5px;
+
+  margin-left: 5px;
+  background-color: #78909c;
+}
+.about {
+  display: flex;
+  align-items: center;
+  width: 50%;
+}
+
+@media screen and (max-width: 640px) {
+  .about {
+    width: 100% !important;
+  }
+}
+/* .about_image {
+  position: relative;
+  z-index: 1;
+} */
+/* .about_image::after {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 100%;
+  height: 100%;
+  border: 2px solid #4fd1c5;
+  z-index: -1;
+} */
