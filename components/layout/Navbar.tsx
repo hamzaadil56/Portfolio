@@ -61,56 +61,66 @@ const Navbar = () => {
           ref={linksRef}
           className="md:flex  divide-y-[1px] divide-gray-600 divide-solid md:divide-none items-center"
         >
-          <li
-            className={` ${
-              currentPathname === "/#home"
-                ? `${styles.active}`
-                : `${styles.hover_underline_animation}`
-            } py-3 cursor-pointer 
+          <a href="#home">
+            <li
+              className={` ${
+                currentPathname === "/#home"
+                  ? `${styles.active}`
+                  : `${styles.hover_underline_animation}`
+              } py-3 cursor-pointer 
            text-gray-400  transition all  md:ml-5 text-center  `}
-          >
-            <a href="#home">Home</a>
-          </li>
-          <li
-            className={` ${
-              currentPathname === "/#about"
-                ? `${styles.active}`
-                : `${styles.hover_underline_animation}`
-            } py-3 cursor-pointer
-            text-gray-400  text-center  md:ml-5 `}
-          >
-            <a href="#about">About</a>
-          </li>
-          <li
-            className={` ${
-              currentPathname === "/#projects"
-                ? `${styles.active}`
-                : `${styles.hover_underline_animation}`
-            } py-3 cursor-pointer
-            text-gray-400  text-center  md:ml-5 `}
-          >
-            <a href="#projects">Projects</a>
-          </li>
-          <li
-            className={` ${
-              currentPathname === "/#skills"
-                ? `${styles.active}`
-                : `${styles.hover_underline_animation}`
-            } py-3 cursor-pointer
-            text-gray-400  text-center  md:ml-5 `}
-          >
-            <a href="#skills">Skills</a>
-          </li>
-          <li
-            className={` ${
-              currentPathname === "/#contact"
-                ? `${styles.active}`
-                : `${styles.hover_underline_animation}`
-            } py-3 cursor-pointer
-            text-gray-400  text-center  md:ml-5 `}
-          >
-            <a href="#contact">Contact</a>
-          </li>
+            >
+              Home
+            </li>
+          </a>
+          <a href="#about">
+            <li
+              className={` ${
+                currentPathname === "/#about"
+                  ? `${styles.active}`
+                  : `${styles.hover_underline_animation}`
+              } py-3 cursor-pointer
+            text-gray-400  text-center  md:ml-5 decoration-none`}
+            >
+              About
+            </li>
+          </a>
+          <a href="#projects">
+            <li
+              className={` ${
+                currentPathname === "/#projects"
+                  ? `${styles.active}`
+                  : `${styles.hover_underline_animation}`
+              } py-3 cursor-pointer
+            text-gray-400  text-center  md:ml-5 decoration-none`}
+            >
+              Projects
+            </li>
+          </a>
+          <a href="#skills">
+            <li
+              className={` ${
+                currentPathname === "/#skills"
+                  ? `${styles.active}`
+                  : `${styles.hover_underline_animation}`
+              } py-3 cursor-pointer
+            text-gray-400  text-center  md:ml-5 decoration-none`}
+            >
+              Skills
+            </li>
+          </a>
+          <a href="#contact">
+            <li
+              className={` ${
+                currentPathname === "/#contact"
+                  ? `${styles.active}`
+                  : `${styles.hover_underline_animation}`
+              } py-3 cursor-pointer
+            text-gray-400  text-center  md:ml-5 decoration-none`}
+            >
+              Contact
+            </li>
+          </a>
         </ul>
         {/* <div className="apply-now-btn justify-center flex items-center">
           <Link href={"https://www.piaic.org/"}>
