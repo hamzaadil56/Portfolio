@@ -11,6 +11,7 @@ const Hero = () => {
     <motion.div
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
+      transition={{ delay: 0.3 }}
       id="home"
       className="flex   flex-col h-screen gap-4 md:px-20 mx-auto px-4  items-start  justify-center w-full    "
     >

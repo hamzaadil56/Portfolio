@@ -18,6 +18,7 @@ const About = () => {
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
+        transition={{ delay: 0.3 }}
         className="grid md:grid-cols-2 gap-16 mx-auto items-center grid-cols-1"
       >
         <div className="justify-self-start">

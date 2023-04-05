@@ -1,7 +1,10 @@
+"use client";
+
 import React from "react";
 import { skills } from "@/data";
 import Image from "next/image";
 import styles from "./about.module.css";
+import { motion } from "framer-motion";
 
 const Skills = () => {
   return (
@@ -13,10 +16,15 @@ const Skills = () => {
       </h1>
       <div className="py-10 grid grid-rows-1 gap-10 md:grid-cols-[repeat(8,auto)] grid-cols-[repeat(4,auto)]">
         {skills.map((skill, index) => (
-          <div key={index}>
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+            key={index}
+          >
             {" "}
             <Image src={skill.logo} alt={skill.skill} />
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>

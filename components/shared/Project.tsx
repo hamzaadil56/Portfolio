@@ -21,6 +21,7 @@ const Project = ({ project }: { project: Project }) => {
     <motion.div
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
+      transition={{ delay: 0.5 }}
       className="my-10 bg-slate-800  xl:bg-transparent grid md:grid-cols-1 xl:grid-cols-2 xl:gap-6 md:items-end xl:items-stretch rounded-md"
     >
       <div className=" flex relative rounded-md cursor-pointer xl:shadow-md">
