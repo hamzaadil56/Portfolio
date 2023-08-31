@@ -21,6 +21,12 @@ import twitterIcon from "@/assets/icons/twitter.svg";
 import linkedinIcon from "@/assets/icons/linkedin.svg";
 import PanaverseDAO from "@/assets/images/panaverse-dao.png";
 
+import mongoLogo from "@/assets/logos/mongoDB.png";
+import expressLogo from "@/assets/logos/expressjs.png";
+import postgreLogo from "@/assets/logos/postgreSQL.png";
+import bootstrapLogo from "@/assets/logos/bootstrap.png";
+import sanityLogo from "@/assets/logos/sanity.png";
+
 export const projects = [
   {
     image: ProjectImage,
@@ -137,6 +143,22 @@ export const skills = [
   {
     skill: "Git",
     logo: gitLogo,
+  },
+  {
+    skill: "MongoDB",
+    logo: mongoLogo,
+  },
+  {
+    skill: "PostgreSQL",
+    logo: postgreLogo,
+  },
+  {
+    skill: "Express.js",
+    logo: expressLogo,
+  },
+  {
+    skill: "Sanity",
+    logo: sanityLogo,
   },
 ];
 export const links = [

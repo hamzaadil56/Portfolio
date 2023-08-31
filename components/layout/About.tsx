@@ -2,7 +2,9 @@
 
 import React from "react";
 import Image from "next/image";
-import Hamza from "@/assets/images/Hamza.jpg";
+// import Hamza from "@/assets/images/Hamza.jpg";
+import Hamza from "@/assets/images/Profile-Picture.png";
+
 import styles from "./about.module.css";
 import { motion } from "framer-motion";
 
