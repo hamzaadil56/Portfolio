@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 
 const Skills = () => {
   return (
-    <div id="skills" className="px-4 md:px-20 my-10">
+    <div id="skills" className="px-4 md:px-20 py-20 my-10">
       <h1
         className={`${styles.about} text-gray-300  text-3xl      font-extrabold `}
       >

@@ -6,17 +6,21 @@ import GithubIcon from "@/assets/icons/github.svg";
 import LinkIcon from "@/assets/icons/link.svg";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { FC } from "react";
 
-interface Project {
+type projectType = {
   image: StaticImageData;
   title: string;
   description: string;
   technologies: string[];
   githubLink: string;
   websiteURL: string;
+};
+export interface Project {
+  project: projectType;
 }
 
-const Project = ({ project }: { project: Project }) => {
+const Project: FC<Project> = ({ project }) => {
   return (
     <motion.div
       initial={{ opacity: 0 }}

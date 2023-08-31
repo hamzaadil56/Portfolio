@@ -24,7 +24,7 @@ const Hero = () => {
         <span
           className={`${styles.text_shadow} text-gray-900  m-0 md:text-[2rem] xl:text-[3rem] text-left tracking-wider   leading-normal`}
         >
-          I build interactive and lively websites.
+          Full-Stack Web Developer
         </span>
       </h1>
 
@@ -43,17 +43,12 @@ const Hero = () => {
         </span> */}
 
       <p className="text-gray-400  2xl:w-2/5 md:w-3/5 md:text-base     text-left ">
-        I'm a chemical engineer and a web developer, specializing in web 3.0
-        development. Currently I'm focused on building full stack websites and
-        enrolled in Web 3.0 and Metaverse Developer Specialization offered by{" "}
-        <Link className="text-teal-400 italic underline" href={"www.piaic.org"}>
-          PIAIC
-        </Link>
-        .
+        I build lively, fast-loading and SEO optimized full-stack web
+        applications.
       </p>
       <div className="md:mt-4">
         <a
-          href="/Hamza-Web-Developer.pdf"
+          href="/Muhammad_Hamza_Resume.pdf"
           target="_blank"
           rel="noopener noreferrer"
           download

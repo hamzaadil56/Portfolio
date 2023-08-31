@@ -8,7 +8,10 @@ import { motion } from "framer-motion";
 
 const About = () => {
   return (
-    <div id="about" className=" mx-auto md:px-20 px-4 text-gray-200 my-10">
+    <div
+      id="about"
+      className=" mx-auto md:px-20 py-20 px-4 text-gray-200 my-10"
+    >
       <h1
         className={`${styles.about} text-gray-300  text-3xl  font-extrabold `}
       >
@@ -23,16 +26,22 @@ const About = () => {
       >
         <div className="justify-self-start">
           <p className="text-gray-400 leading-6 py-10">
-            Hello! Muhammad Hamza here. I'm a chemical engineer and a web
-            developer. I&apos;sm passionate about programming and love to build
-            websites with attractive user interface and interactive animations.
-            Currently I&apos;m completing my Bachelor&apos;s Degree in Chemical
-            Engineering from NED University of Engineering and Technology.{" "}
+            Hello! Muhammad Hamza here. While pursuing my bachelor's degree in
+            chemical engineering, the COVID-19 pandemic occurred and in that
+            period of time, I found my passion in programming. I started with
+            Python, built a few programs, and then the curiosity to build
+            websites lead to me to become a full-stack web developer. I love to
+            build real world applications with modern and edge-cutting web
+            technologies. Currently I'm a freelancer and successfully delivered
+            several projects with 99.9% client satisfaction.
           </p>
-          <p className="text-gray-400 my-2 leading-6">
-            I enjoy building web appliations using React.js library with Next.js
-            framework. For styling and designing beautiful websites Tailwind CSS
-            is my favourite framework.
+          <p className="text-gray-400  leading-6">
+            I like to create web applications using the React.js library and the
+            Next.js framework. To design visually appealing websites, I prefer
+            to use the Tailwind CSS framework. In addition, I incorporate
+            backend development by utilizing Next.js route handlers, Node.js,
+            and both relational and NoSQL databases such as MongoDB, Firebase
+            Database, and PostgreSQL.
           </p>
         </div>
         <div className="grid relative">
