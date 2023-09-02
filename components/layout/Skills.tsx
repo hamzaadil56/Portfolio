@@ -14,7 +14,7 @@ const Skills = () => {
       >
         Skills
       </h1>
-      <div className="py-10 grid grid-rows-1 gap-20 md:grid-cols-[repeat(6,auto)] grid-cols-[repeat(4,auto)]">
+      <div className="py-10 grid grid-rows-1 gap-10 md:gap-20 md:grid-cols-[repeat(6,auto)] grid-cols-[repeat(4,auto)]">
         {skills.map((skill, index) => (
           <motion.div
             initial={{ opacity: 0 }}

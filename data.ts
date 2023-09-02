@@ -52,7 +52,7 @@ export const projects = [
       "Chart.js",
     ],
     githubLink: "https://github.com/hamzaadil56/MERN-STACK-ECOMMERCE-APP",
-    websiteURL: "https://github.com/hamzaadil56/MERN-STACK-ECOMMERCE-APP",
+    websiteURL: "https://www.youtube.com/watch?v=TRYKiFZm4H4&feature=youtu.be",
   },
 
   {
@@ -61,8 +61,8 @@ export const projects = [
     description:
       "Collaborated with experienced software developers and demonstrated strong problem-solving skills by integrating the Next.js framework and PostgreSQL database, resulting in enhanced website functionality for the Governor Sindh Initiative and driving a notable 30% increase in user engagement.",
     technologies: ["Next.js", "Tailwind CSS", "PostgreSQL", "Drizzle ORM"],
-    githubLink: "https://github.com/hamzaadil56/MERN-STACK-ECOMMERCE-APP",
-    websiteURL: "https://github.com/hamzaadil56/MERN-STACK-ECOMMERCE-APP",
+    githubLink: "https://github.com/hamzaadil56/",
+    websiteURL: "https://www.governorsindh.com/",
   },
   {
     image: FormGenerator,
@@ -70,8 +70,8 @@ export const projects = [
     description:
       "Successfully delivered a freelance project with 100% client satisfaction which involved constructing a web application that allows users to create customizable forms and share them with others for data collection purposes.",
     technologies: ["Next.js", "Tailwind CSS", "PostgreSQL", "Drizzle ORM"],
-    githubLink: "https://github.com/hamzaadil56/MERN-STACK-ECOMMERCE-APP",
-    websiteURL: "https://github.com/hamzaadil56/MERN-STACK-ECOMMERCE-APP",
+    githubLink: "https://github.com/hamzaadil56/google-form-generator",
+    websiteURL: "https://google-form-generator.vercel.app/",
   },
   {
     image: GulzarFashion,
@@ -79,8 +79,8 @@ export const projects = [
     description:
       "Gulzar Fasion is an ecommerce web application which sell ladies garments. Sanity content management system is used for manage the inventory of the store. ",
     technologies: ["Next.js", "Sanity CMS", "Tailwind CSS", "Zustand", "JWT"],
-    githubLink: "https://github.com/hamzaadil56/MERN-STACK-ECOMMERCE-APP",
-    websiteURL: "https://github.com/hamzaadil56/MERN-STACK-ECOMMERCE-APP",
+    githubLink: "https://github.com/hamzaadil56/gulzar-fashion",
+    websiteURL: "https://gulzar-fashion.vercel.app/",
   },
   {
     image: PanaverseDAO,
@@ -106,8 +106,8 @@ export const projects = [
     title: "Quiz App",
     description: "Quiz Application built with Javascript.",
     technologies: ["HTML", "CSS", "Javascript"],
-    githubLink: "https://github.com/hamzaadil56/MERN-STACK-ECOMMERCE-APP",
-    websiteURL: "https://github.com/hamzaadil56/MERN-STACK-ECOMMERCE-APP",
+    githubLink: "https://github.com/hamzaadil56/QuizApp",
+    websiteURL: "https://quizapplication-e096b.web.app/",
   },
 ];
 

@@ -5,31 +5,30 @@ import Link from "next/link";
 
 const ProjectCard = ({ project }: Project) => {
   return (
-    <div className="relative flex flex-col  justify-between max-w-sm rounded bg-slate-800 overflow-hidden shadow-lg">
-      <Image
-        className="w-full basis-1/2"
-        src={project.image}
-        width={500}
-        height={500}
-        alt="project"
-      />
-      <Link
-        target="_blank"
-        href={project.websiteURL}
-        className="absolute top-0 left-0 w-full h-full"
-      ></Link>
-      <div className="basis-1/2 justify-between flex flex-col">
-        <div className="px-6 py-4">
-          <div className="font-bold text-xl text-gray-200 mb-2">
+    <div className="relative flex flex-col  justify-between  rounded bg-slate-800 overflow-hidden shadow-lg">
+      <Link target="_blank" href={project.websiteURL} className="shrink-0">
+        <Image
+          className="w-full shrink-0"
+          src={project.image}
+          width={500}
+          height={500}
+          alt="project"
+        />
+      </Link>
+      <div className="flex-grow justify-between flex flex-col">
+        <div className="md:px-6 py-4 px-2">
+          <h1 className=" text-base font-bold  md:text-xl text-gray-200 mb-2">
             {project.title}
-          </div>
-          <p className="text-gray-400 text-base">{project.description}</p>
+          </h1>
+          <p className="text-gray-400 md:text-base text-sm">
+            {project.description}
+          </p>
         </div>
-        <div className="px-6 pt-4 pb-2 mt-auto mb-0 ml-0 mr-0">
+        <div className="md:px-6 py-4 px-2 mt-auto mb-0 ml-0 mr-0">
           {project.technologies.map((technology, index) => (
             <span
               key={index}
-              className="inline-block bg-gray-900 rounded-full px-3 py-1 text-sm font-light text-teal-400 mr-2 mb-2"
+              className="inline-block bg-gray-900 rounded-full px-3 py-1 text-xs md:text-sm font-light text-teal-400 mr-2 mb-2"
             >
               {technology}
             </span>
