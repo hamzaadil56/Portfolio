@@ -71,7 +71,7 @@ export const projects = [
       "Successfully delivered a freelance project with 100% client satisfaction which involved constructing a web application that allows users to create customizable forms and share them with others for data collection purposes.",
     technologies: ["Next.js", "Tailwind CSS", "PostgreSQL", "Drizzle ORM"],
     githubLink: "https://github.com/hamzaadil56/google-form-generator",
-    websiteURL: "https://google-form-generator.vercel.app/",
+    websiteURL: "https://next-google-form-generator.vercel.app/",
   },
   {
     image: GulzarFashion,
