@@ -7,13 +7,13 @@ import Contact from "@/components/layout/Contact";
 import Footer from "@/components/layout/Footer";
 
 export default function Home() {
-  return (
-    <>
-      <Hero />
-      <About />
+	return (
+		<>
+			<Hero />
+			{/* <About />
       <Projects />
       <Skills />
-      <Contact />
-    </>
-  );
+      <Contact /> */}
+		</>
+	);
 }
