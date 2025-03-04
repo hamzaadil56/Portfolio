@@ -22,7 +22,7 @@ const Hero = () => {
 		adjustTextareaHeight();
 	}, [message]);
 
-	const handleSendMessage = (e) => {
+	const handleSendMessage = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		if (message.trim()) {
 			console.log("Message sent:", message);
@@ -32,7 +32,7 @@ const Hero = () => {
 
 	return (
 		<div className="flex-1 flex gap-10 flex-col items-center justify-center px-4 py-12">
-			<h1 className="text-4xl max-w-md text-center mb-20  text-light-gray">
+			<h1 className="text-4xl max-w-md text-center   text-light-gray">
 				Chat with me to discover more about myself!
 			</h1>
 			<div className="flex items-start gap-3 w-full max-w-xl">

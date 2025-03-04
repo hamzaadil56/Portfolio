@@ -26,7 +26,7 @@ const Navbar = () => {
 	}, [isOpen]);
 
 	return (
-		<nav className="z-10   mx-auto  fixed top-0 w-full bg-gray-900 z-20 md:container-xl md:flex items-center justify-between md:px-20 text-gray-200  px-4  py-4  bg-main-gray">
+		<nav className="z-10   mx-auto   w-full bg-gray-900 z-20 md:container-xl md:flex items-center justify-between md:px-20 text-gray-200  px-4  py-4  bg-main-gray">
 			<div className="flex  justify-between items-center md:w-1/5 ">
 				<div className="logo ">
 					<a href={"/"}>
