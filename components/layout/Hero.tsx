@@ -5,16 +5,28 @@ import { Send } from "lucide-react";
 import { motion } from "framer-motion";
 import HamzaPic from "@/assets/images/hamza.jpeg";
 import Image from "next/image";
+import HumanMessageBox from "../shared/HumanMessageBox";
+import AIMessageBox from "../shared/AIMessageBox";
 
 const Hero = () => {
 	const [message, setMessage] = useState("");
-	const textareaRef = useRef(null);
+	const [messages, setMessages] = useState<
+		{ type: "human" | "ai"; text: string }[]
+	>([
+		{
+			type: "ai",
+			text: "👋 Hi there! I'm Hamza, what do you want to ask about me?",
+		},
+	]);
+	const textareaRef = useRef<HTMLTextAreaElement | null>(null);
 
 	const adjustTextareaHeight = () => {
-		const textarea = textareaRef.current;
-		if (textarea) {
-			textarea.style.height = "auto";
-			textarea.style.height = `${Math.max(120, textarea.scrollHeight)}px`;
+		if (textareaRef.current) {
+			textareaRef.current.style.height = "auto";
+			textareaRef.current.style.height = `${Math.max(
+				50,
+				textareaRef.current.scrollHeight
+			)}px`;
 		}
 	};
 
@@ -25,71 +37,67 @@ const Hero = () => {
 	const handleSendMessage = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		if (message.trim()) {
-			console.log("Message sent:", message);
+			setMessages((prev) => [...prev, { type: "human", text: message }]);
 			setMessage("");
+			setTimeout(() => {
+				setMessages((prev) => [
+					...prev,
+					{ type: "ai", text: "That's interesting! Tell me more." },
+				]);
+			}, 1000);
 		}
 	};
 
 	return (
-		<div className="flex-1 flex gap-10 flex-col items-center justify-center px-4 py-12">
-			<h1 className="text-4xl max-w-md text-center   text-light-gray">
+		<div className="flex flex-col items-center justify-center px-4 py-12 w-full">
+			<h1 className="text-4xl max-w-md text-center text-light-gray">
 				Chat with me to discover more about myself!
 			</h1>
-			<div className="flex items-start gap-3 w-full max-w-xl">
-				<Image
-					width={40}
-					height={40}
-					src={HamzaPic}
-					alt="profile-pic"
-					className="rounded-full"
-				/>
 
-				{/* Chat Bubble with Discord-style pointer */}
-				<motion.div
-					initial={{ opacity: 0, y: -20 }}
-					animate={{ opacity: 1, y: 0 }}
-					transition={{ duration: 0.6 }}
-					className="relative bg-secondary-gray text-light-gray p-4 rounded-lg shadow-md max-w-xl text-left rounded-tl-none"
-				>
-					<div className="absolute top-0 left-[-10px] w-0 h-0 border-t-[10px] border-t-transparent border-r-[10px] border-r-main-gray border-b-[10px] border-b-transparent"></div>
-					<p className="text-sm font-semibold">Hamza</p>
-					<p className="text-base mt-1">
-						👋 Hi there! I'm Hamza, what do you want to ask about
-						me?
-					</p>
-				</motion.div>
+			<div className="w-full max-w-xl space-y-4 mt-6">
+				{messages.map((msg, index) => (
+					<div
+						key={index}
+						className={`flex w-full ${
+							msg.type === "ai" ? "justify-start" : "justify-end"
+						}`}
+					>
+						{msg.type === "ai" ? (
+							<AIMessageBox message={msg.text} />
+						) : (
+							<HumanMessageBox message={msg.text} />
+						)}
+					</div>
+				))}
 			</div>
 
-			{/* Message Input */}
 			<motion.form
 				initial={{ opacity: 0, y: 20 }}
 				animate={{ opacity: 1, y: 0 }}
 				transition={{ duration: 0.6, delay: 0.2 }}
 				onSubmit={handleSendMessage}
-				className="w-full max-w-2xl bg-secondary-gray rounded-lg"
+				className="w-full max-w-2xl bg-secondary-gray rounded-lg mt-6"
 			>
-				<div className="flex flex-row bg-secondary-gray rounded-lg shadow-md overflow-hidden">
+				<div className="flex flex-row bg-secondary-gray p-4 rounded-lg scrollbar-hide  shadow-md overflow-hidden">
 					<textarea
 						ref={textareaRef}
 						placeholder="Ask me anything..."
 						value={message}
 						onChange={(e) => setMessage(e.target.value)}
-						className="w-full min-h-[120px] p-4 bg-secondary-gray border-none outline-none resize-none text-light-gray overflow-hidden"
+						className="w-full min-h-[100px] bg-secondary-gray scrollbar-hide border-none outline-none resize-none text-light-gray "
 					/>
-					<div className="px-4 py-3 bg-secondary-gray border-t border-line-gray flex justify-end">
-						<button
-							type="submit"
-							disabled={!message.trim()}
-							className={`h-10 px-4 rounded-full flex items-center transition shadow-md opacity-90 justify-center gap-2 transition-colors transition-all  ${
-								message.trim()
-									? "bg-main-gray text-light-gray hover:opacity-100 "
-									: "bg-gray-200 text-gray-400 "
-							}`}
-						>
-							<span>Send</span>
-							<Send size={16} />
-						</button>
-					</div>
+					<button
+						type="submit"
+						disabled={!message.trim()}
+						className={`h-10 px-4 rounded-full flex items-center transition shadow-md opacity-90 justify-center gap-2 transition-colors transition-all  ${
+							message.trim()
+								? "bg-main-gray text-light-gray hover:opacity-100 "
+								: "bg-gray-200 text-gray-400 "
+						}`}
+					>
+						<span>Send</span>
+						<Send size={16} />
+					</button>
 				</div>
 			</motion.form>
 		</div>
