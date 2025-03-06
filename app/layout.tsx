@@ -26,7 +26,7 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body className={`${lexend.className}  bg-main-gray`}>
-				<main className="min-h-screen flex flex-col">
+				<main className="min-h-screen justify-between flex flex-col">
 					<Navbar />
 					{children}
 					<Footer />
