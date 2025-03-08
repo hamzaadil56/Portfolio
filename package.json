@@ -7,7 +7,9 @@
 		"build": "next build",
 		"start": "next start",
 		"lint": "next lint",
-		"db:generate": "drizzle-kit generate"
+		"db:generate": "drizzle-kit generate",
+		"db:migrate": "tsx lib/db/migrate.ts",
+		"db:push": "drizzle-kit push"
 	},
 	"dependencies": {
 		"@ai-sdk/openai": "^1.2.1",

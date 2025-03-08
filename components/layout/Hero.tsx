@@ -7,18 +7,15 @@ import HamzaPic from "@/assets/images/hamza.jpeg";
 import Image from "next/image";
 import HumanMessageBox from "../shared/HumanMessageBox";
 import AIMessageBox from "../shared/AIMessageBox";
+import { useChat } from "@ai-sdk/react";
 
 const Hero = () => {
 	const [message, setMessage] = useState("");
-	const [messages, setMessages] = useState<
-		{ type: "human" | "ai"; text: string }[]
-	>([
-		{
-			type: "ai",
-			text: "👋 Hi there! I'm Hamza, what do you want to ask about me?",
-		},
-	]);
+
 	const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+	const { messages, input, handleInputChange, handleSubmit } = useChat({
+		maxSteps: 3,
+	});
 
 	const adjustTextareaHeight = () => {
 		if (textareaRef.current) {
@@ -71,25 +68,43 @@ const Hero = () => {
 				))}
 			</div>
 
+			<div className="space-y-4">
+				{messages.map((m) => (
+					<div key={m.id} className="whitespace-pre-wrap">
+						<div>
+							<div className="font-bold">{m.role}</div>
+							<p>
+								{m.content.length > 0 ? (
+									m.content
+								) : (
+									<span className="italic font-light">
+										{"calling tool: " + m?.parts?.[0].type}
+									</span>
+								)}
+							</p>
+						</div>
+					</div>
+				))}
+			</div>
+
 			<motion.form
 				initial={{ opacity: 0, y: 20 }}
 				animate={{ opacity: 1, y: 0 }}
 				transition={{ duration: 0.6, delay: 0.2 }}
-				onSubmit={handleSendMessage}
+				onSubmit={handleSubmit}
 				className="w-full max-w-2xl bg-secondary-gray rounded-lg mt-6"
 			>
 				<div className="flex flex-row bg-secondary-gray p-4 rounded-lg scrollbar-hide  shadow-md overflow-hidden">
 					<textarea
 						ref={textareaRef}
 						placeholder="Ask me anything..."
-						value={message}
-						onChange={(e) => setMessage(e.target.value)}
+						value={input}
+						onChange={handleInputChange}
 						className="w-full min-h-[100px] bg-secondary-gray scrollbar-hide border-none outline-none resize-none text-light-gray "
 					/>
 					<button
 						type="submit"
-						disabled={!message.trim()}
-						className={`h-10 px-4 rounded-full flex items-center transition shadow-md opacity-90 justify-center gap-2 transition-colors transition-all  ${
+						className={`h-10 px-4 rounded-full flex items-center transition shadow-md opacity-90 justify-center gap-2 transition-colors transition-all bg-main-gray hover:opacity-100${
 							message.trim()
 								? "bg-main-gray text-light-gray hover:opacity-100 "
 								: "bg-gray-200 text-gray-400 "
