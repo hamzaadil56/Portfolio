@@ -31,19 +31,19 @@ const Hero = () => {
 		adjustTextareaHeight();
 	}, [message]);
 
-	const handleSendMessage = (e: React.FormEvent<HTMLFormElement>) => {
-		e.preventDefault();
-		if (message.trim()) {
-			setMessages((prev) => [...prev, { type: "human", text: message }]);
-			setMessage("");
-			setTimeout(() => {
-				setMessages((prev) => [
-					...prev,
-					{ type: "ai", text: "That's interesting! Tell me more." },
-				]);
-			}, 1000);
-		}
-	};
+	// const handleSendMessage = (e: React.FormEvent<HTMLFormElement>) => {
+	// 	e.preventDefault();
+	// 	if (message.trim()) {
+	// 		setMessages((prev) => [...prev, { type: "human", text: message }]);
+	// 		setMessage("");
+	// 		setTimeout(() => {
+	// 			setMessages((prev) => [
+	// 				...prev,
+	// 				{ type: "ai", text: "That's interesting! Tell me more." },
+	// 			]);
+	// 		}, 1000);
+	// 	}
+	// };
 
 	return (
 		<div className="flex flex-col items-center justify-center px-4 py-12 w-full">
@@ -56,33 +56,16 @@ const Hero = () => {
 					<div
 						key={index}
 						className={`flex w-full ${
-							msg.type === "ai" ? "justify-start" : "justify-end"
+							msg.role === "assistant"
+								? "justify-start"
+								: "justify-end"
 						}`}
 					>
-						{msg.type === "ai" ? (
-							<AIMessageBox message={msg.text} />
+						{msg.role === "assistant" ? (
+							<AIMessageBox message={msg.content} />
 						) : (
-							<HumanMessageBox message={msg.text} />
+							<HumanMessageBox message={msg.content} />
 						)}
-					</div>
-				))}
-			</div>
-
-			<div className="space-y-4">
-				{messages.map((m) => (
-					<div key={m.id} className="whitespace-pre-wrap">
-						<div>
-							<div className="font-bold">{m.role}</div>
-							<p>
-								{m.content.length > 0 ? (
-									m.content
-								) : (
-									<span className="italic font-light">
-										{"calling tool: " + m?.parts?.[0].type}
-									</span>
-								)}
-							</p>
-						</div>
 					</div>
 				))}
 			</div>
