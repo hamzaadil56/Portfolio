@@ -31,20 +31,6 @@ const Hero = () => {
 		adjustTextareaHeight();
 	}, [message]);
 
-	// const handleSendMessage = (e: React.FormEvent<HTMLFormElement>) => {
-	// 	e.preventDefault();
-	// 	if (message.trim()) {
-	// 		setMessages((prev) => [...prev, { type: "human", text: message }]);
-	// 		setMessage("");
-	// 		setTimeout(() => {
-	// 			setMessages((prev) => [
-	// 				...prev,
-	// 				{ type: "ai", text: "That's interesting! Tell me more." },
-	// 			]);
-	// 		}, 1000);
-	// 	}
-	// };
-
 	return (
 		<div className="flex flex-col items-center justify-center px-4 py-12 w-full">
 			<h1 className="text-4xl max-w-md text-center text-light-gray">
