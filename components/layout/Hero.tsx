@@ -48,9 +48,13 @@ const Hero = () => {
 						}`}
 					>
 						{msg.role === "assistant" ? (
-							<AIMessageBox message={msg.content} />
+							<AIMessageBox
+								message={msg.content || "Thinking..."}
+							/>
 						) : (
-							<HumanMessageBox message={msg.content} />
+							<HumanMessageBox
+								message={msg.content || "Thinking.."}
+							/>
 						)}
 					</div>
 				))}
