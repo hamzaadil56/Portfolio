@@ -32,12 +32,12 @@ const Hero = () => {
 	}, [message]);
 
 	return (
-		<div className="flex flex-col items-center justify-center px-4 py-12 w-full">
-			<h1 className="text-4xl max-w-md text-center text-light-gray">
-				Chat with me to discover more about myself!
+		<div className="flex flex-col items-center justify-center px-4 py-6  w-full">
+			<h1 className="text-4xl w-full  text-center text-light-gray">
+				Ask anything about me from my AI assistant!
 			</h1>
 
-			<div className="w-full max-w-xl space-y-4 mt-6">
+			<div className="w-full max-w-3xl space-y-4 mt-6">
 				{messages.map((msg, index) => (
 					<div
 						key={index}
@@ -65,7 +65,7 @@ const Hero = () => {
 				animate={{ opacity: 1, y: 0 }}
 				transition={{ duration: 0.6, delay: 0.2 }}
 				onSubmit={handleSubmit}
-				className="w-full max-w-2xl bg-secondary-gray rounded-lg mt-6"
+				className="w-full max-w-3xl mx-auto  bg-secondary-gray rounded-lg mt-6"
 			>
 				<div className="flex flex-row bg-secondary-gray p-4 rounded-lg scrollbar-hide  shadow-md overflow-hidden">
 					<textarea
