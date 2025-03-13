@@ -58,14 +58,6 @@ const Navbar = () => {
 				>
 					{currentPathname === "/projects" ? (
 						<>
-							<Link href="#">
-								<li
-									className={` py-3 cursor-pointer 
-           text-gray-400  transition all  md:ml-5 text-center  `}
-								>
-									Home
-								</li>
-							</Link>
 							<Link href="/#about">
 								<li
 									className={`  py-3 cursor-pointer
@@ -90,30 +82,10 @@ const Navbar = () => {
 									Blogs
 								</li>
 							</Link>
-							<Link href="#contact">
-								<li
-									className={`  py-3 cursor-pointer
-            text-gray-400  text-center  md:ml-5 decoration-none`}
-								>
-									Contact
-								</li>
-							</Link>
 						</>
 					) : (
 						<>
-							<a href="#">
-								<li
-									className={` ${
-										currentPathname === "/#"
-											? `${styles.active}`
-											: `${styles.hover_underline_animation}`
-									} py-3 cursor-pointer 
-           text-gray-400  transition all  md:ml-5 text-center  `}
-								>
-									Home
-								</li>
-							</a>
-							{/* <a href="/#about">
+							<Link href="/#about">
 								<li
 									className={` ${
 										currentPathname === "/#about"
@@ -124,11 +96,11 @@ const Navbar = () => {
 								>
 									About
 								</li>
-							</a> */}
-							{/* <a href="/#projects">
+							</Link>
+							<Link href="/projects">
 								<li
 									className={` ${
-										currentPathname === "/#projects"
+										currentPathname === "/projects"
 											? `${styles.active}`
 											: `${styles.hover_underline_animation}`
 									} py-3 cursor-pointer
@@ -136,7 +108,7 @@ const Navbar = () => {
 								>
 									Projects
 								</li>
-							</a> */}
+							</Link>
 							<a href="/#skills">
 								<li
 									className={` ${
