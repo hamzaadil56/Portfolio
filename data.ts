@@ -36,7 +36,7 @@ export const projects = [
 			"Successfully delivered this project to the client in which a platform was developed where users can enroll in different courses related to lifestyle and business. Integrated Stripe and Paypal gateway system for smooth checkout process. Collaborated with another developer to work like a team delivering multiple features at a time. ",
 		technologies: ["Next.js", "Node.js", "MongoDB", "Express.js"],
 		githubLink: "https://github.com/hamzaadil56/Manage-Landing-page",
-		websiteURL: "https://manage-landing-page56.netlify.app/",
+		websiteURL: "https://platform.dreammakerr.com/",
 	},
 	{
 		image: ProjectImage,
@@ -46,6 +46,15 @@ export const projects = [
 		technologies: ["HTML", "CSS", "JavaScript"],
 		githubLink: "https://github.com/hamzaadil56/Manage-Landing-page",
 		websiteURL: "https://manage-landing-page56.netlify.app/",
+	},
+	{
+		image: Governor,
+		title: "Governor Initiative Website",
+		description:
+			"Collaborated with experienced software developers and demonstrated strong problem-solving skills by integrating the Next.js framework and PostgreSQL database, resulting in enhanced website functionality for the Governor Sindh Initiative and driving a notable 30% increase in user engagement.",
+		technologies: ["Next.js", "Tailwind CSS", "PostgreSQL", "Drizzle ORM"],
+		githubLink: "https://github.com/hamzaadil56/",
+		websiteURL: "https://www.governorsindh.com/",
 	},
 	{
 		image: MERNImage,
@@ -66,15 +75,6 @@ export const projects = [
 			"https://www.youtube.com/watch?v=TRYKiFZm4H4&feature=youtu.be",
 	},
 
-	{
-		image: Governor,
-		title: "Governor Initiative Website",
-		description:
-			"Collaborated with experienced software developers and demonstrated strong problem-solving skills by integrating the Next.js framework and PostgreSQL database, resulting in enhanced website functionality for the Governor Sindh Initiative and driving a notable 30% increase in user engagement.",
-		technologies: ["Next.js", "Tailwind CSS", "PostgreSQL", "Drizzle ORM"],
-		githubLink: "https://github.com/hamzaadil56/",
-		websiteURL: "https://www.governorsindh.com/",
-	},
 	{
 		image: FormGenerator,
 		title: "Form Generator App",
