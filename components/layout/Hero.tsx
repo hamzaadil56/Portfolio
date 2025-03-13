@@ -1,51 +1,96 @@
 "use client";
 
-import React from "react";
-import styles from "./hero.module.css";
-import Button from "../shared/Button";
-import Link from "next/link";
+import React, { useState, useRef, useEffect } from "react";
+import { Send } from "lucide-react";
 import { motion } from "framer-motion";
+import HamzaPic from "@/assets/images/hamza.jpeg";
+import Image from "next/image";
+import HumanMessageBox from "../shared/HumanMessageBox";
+import AIMessageBox from "../shared/AIMessageBox";
+import { useChat } from "@ai-sdk/react";
 
 const Hero = () => {
+
+	const [message, setMessage] = useState("");
+
+	const textareaRef = useRef<HTMLTextAreaElement | null>(null);
+	const { messages, input, handleInputChange, handleSubmit } = useChat({
+		maxSteps: 3,
+	});
+
+	const adjustTextareaHeight = () => {
+		if (textareaRef.current) {
+			textareaRef.current.style.height = "auto";
+			textareaRef.current.style.height = `${Math.max(
+				50,
+				textareaRef.current.scrollHeight
+			)}px`;
+		}
+	};
+
+	useEffect(() => {
+		adjustTextareaHeight();
+	}, [message]);
+
 	return (
-		<motion.div
-			initial={{ opacity: 0 }}
-			whileInView={{ opacity: 1 }}
-			transition={{ delay: 0.3 }}
-			id="home"
-			className="flex   flex-col h-screen gap-4 md:px-20 mx-auto px-4  items-start  justify-center w-full    "
-		>
-			<h1 className="leading-tight text-sm  text-teal-400 m-0  2xl:text-2xl text-left  ml-[3px]">
-				Hi, my name is
-			</h1>
-			<h1 className="text-gray-300 leading-tight m-0 font-extrabold text-2xl md:text-[3rem] xl:text-[4rem]  text-left  ">
-				Muhammad Hamza.
-				<br />
-				<span
-					className={`${styles.text_shadow} text-gray-900  m-0 md:text-[2rem] xl:text-[3rem] text-left tracking-wider   leading-normal`}
-				>
-					Full-Stack Web Developer
-				</span>
+		<div className="flex flex-col items-center justify-center px-4 py-6  w-full">
+			<h1 className="text-4xl w-full  text-center text-light-gray">
+				Ask anything about me from my AI assistant!
 			</h1>
 
-			<p className="text-gray-400  2xl:w-2/5 md:w-3/5 md:text-base     text-left ">
-				I build lively, fast-loading and SEO optimized full-stack web
-				applications.
-			</p>
-			<div className="md:mt-4">
-				<a
-					href="/Muhammad_Hamza_Resume.pdf"
-					target="_blank"
-					rel="noopener noreferrer"
-					download
-				>
-					<Button
-						text="Resume"
-						className="my-2 px-4 md:px-8 py-2 md:py-4 hover:text-gray-900 transition-all hover:bg-teal-400"
-					/>
-				</a>
+			<div className="w-full max-w-3xl space-y-4 mt-6">
+				{messages.map((msg, index) => (
+					<div
+						key={index}
+						className={`flex w-full ${
+							msg.role === "assistant"
+								? "justify-start"
+								: "justify-end"
+						}`}
+					>
+						{msg.role === "assistant" ? (
+							<AIMessageBox
+								message={msg.content || "Thinking..."}
+							/>
+						) : (
+							<HumanMessageBox
+								message={msg.content || "Thinking.."}
+							/>
+						)}
+					</div>
+				))}
 			</div>
-		</motion.div>
+
+			<motion.form
+				initial={{ opacity: 0, y: 20 }}
+				animate={{ opacity: 1, y: 0 }}
+				transition={{ duration: 0.6, delay: 0.2 }}
+				onSubmit={handleSubmit}
+				className="w-full max-w-3xl mx-auto  bg-secondary-gray rounded-lg mt-6"
+			>
+				<div className="flex flex-row bg-secondary-gray p-4 rounded-lg scrollbar-hide  shadow-md overflow-hidden">
+					<textarea
+						ref={textareaRef}
+						placeholder="Ask me anything..."
+						value={input}
+						onChange={handleInputChange}
+						className="w-full min-h-[100px] bg-secondary-gray scrollbar-hide border-none outline-none resize-none text-light-gray "
+					/>
+					<button
+						type="submit"
+						className={`h-10 px-4 rounded-full flex items-center transition shadow-md opacity-90 justify-center gap-2 transition-colors transition-all bg-main-gray hover:opacity-100${
+							message.trim()
+								? "bg-main-gray text-light-gray hover:opacity-100 "
+								: "bg-gray-200 text-gray-400 "
+						}`}
+					>
+						<span>Send</span>
+						<Send size={16} />
+					</button>
+				</div>
+			</motion.form>
+		</div>
+
 	);
 };
 
