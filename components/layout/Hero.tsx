@@ -10,6 +10,7 @@ import AIMessageBox from "../shared/AIMessageBox";
 import { useChat } from "@ai-sdk/react";
 
 const Hero = () => {
+
 	const [message, setMessage] = useState("");
 
 	const textareaRef = useRef<HTMLTextAreaElement | null>(null);
@@ -89,6 +90,7 @@ const Hero = () => {
 				</div>
 			</motion.form>
 		</div>
+
 	);
 };
 
