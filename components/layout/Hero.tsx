@@ -10,7 +10,6 @@ import AIMessageBox from "../shared/AIMessageBox";
 import { useChat } from "@ai-sdk/react";
 
 const Hero = () => {
-
 	const [message, setMessage] = useState("");
 
 	const textareaRef = useRef<HTMLTextAreaElement | null>(null);
@@ -64,7 +63,7 @@ const Hero = () => {
 			<motion.form
 				initial={{ opacity: 0, y: 20 }}
 				animate={{ opacity: 1, y: 0 }}
-				transition={{ duration: 0.6, delay: 0.2 }}
+				transition={{ duration: 0.3 }}
 				onSubmit={handleSubmit}
 				className="w-full max-w-3xl mx-auto  bg-secondary-gray rounded-lg mt-6"
 			>
@@ -90,7 +89,6 @@ const Hero = () => {
 				</div>
 			</motion.form>
 		</div>
-
 	);
 };
 
