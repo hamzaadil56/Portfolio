@@ -56,72 +56,44 @@ const Navbar = () => {
 					ref={linksRef}
 					className="md:flex  divide-y-[1px] divide-gray-600 divide-solid md:divide-none items-center"
 				>
-					{currentPathname === "/projects" ? (
-						<>
-							<Link href="/#about">
-								<li
-									className={`  py-3 cursor-pointer
+					<>
+						<Link href="/#about">
+							<li
+								className={` ${
+									currentPathname === "/"
+										? `${styles.active}`
+										: `${styles.hover_underline_animation}`
+								} py-3 cursor-pointer
             text-gray-400  text-center  md:ml-5 decoration-none`}
-								>
-									About
-								</li>
-							</Link>
-							<Link href="/#projects">
-								<li
-									className={` py-3 cursor-pointer
+							>
+								About
+							</li>
+						</Link>
+						<Link href="/projects">
+							<li
+								className={` ${
+									currentPathname === "/projects"
+										? `${styles.active}`
+										: `${styles.hover_underline_animation}`
+								} py-3 cursor-pointer
             text-gray-400  text-center  md:ml-5 decoration-none`}
-								>
-									Projects
-								</li>
-							</Link>
-							<Link href="/#skills">
-								<li
-									className={`  py-3 cursor-pointer
+							>
+								Projects
+							</li>
+						</Link>
+						<a href="/blogs">
+							<li
+								className={` ${
+									currentPathname === "/blogs"
+										? `${styles.active}`
+										: `${styles.hover_underline_animation}`
+								} py-3 cursor-pointer
             text-gray-400  text-center  md:ml-5 decoration-none`}
-								>
-									Blogs
-								</li>
-							</Link>
-						</>
-					) : (
-						<>
-							<Link href="/#about">
-								<li
-									className={` ${
-										currentPathname === "/#about"
-											? `${styles.active}`
-											: `${styles.hover_underline_animation}`
-									} py-3 cursor-pointer
-            text-gray-400  text-center  md:ml-5 decoration-none`}
-								>
-									About
-								</li>
-							</Link>
-							<Link href="/projects">
-								<li
-									className={` ${
-										currentPathname === "/projects"
-											? `${styles.active}`
-											: `${styles.hover_underline_animation}`
-									} py-3 cursor-pointer
-            text-gray-400  text-center  md:ml-5 decoration-none`}
-								>
-									Projects
-								</li>
-							</Link>
-							<a href="/#skills">
-								<li
-									className={` ${
-										currentPathname === "/#skills"
-											? `${styles.active}`
-											: `${styles.hover_underline_animation}`
-									} py-3 cursor-pointer
-            text-gray-400  text-center  md:ml-5 decoration-none`}
-								>
-									Blogs
-								</li>
-							</a>
-							{/* <a href="#contact">
+							>
+								Blogs
+							</li>
+						</a>
+						{/* <a href="#contact">
 								<li
 									className={` ${
 										currentPathname === "/#contact"
@@ -133,8 +105,7 @@ const Navbar = () => {
 									Contact
 								</li>
 							</a> */}
-						</>
-					)}
+					</>
 				</ul>
 				{/* <div className="apply-now-btn justify-center flex items-center">
           <Link href={"https://www.piaic.org/"}>

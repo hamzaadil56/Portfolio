@@ -1,6 +1,6 @@
 {
-  "id": "8ca89252-4f39-494a-aa8e-56955d5bfe21",
-  "prevId": "00000000-0000-0000-0000-000000000000",
+  "id": "d1dc962a-1d1a-47ce-a8b7-6f0a4db514eb",
+  "prevId": "8ca89252-4f39-494a-aa8e-56955d5bfe21",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -36,14 +36,22 @@
           "name": "url",
           "type": "text",
           "primaryKey": false,
-          "notNull": false,
+          "notNull": true,
           "default": "'https://google.com'"
         },
         "category": {
           "name": "category",
           "type": "text",
           "primaryKey": false,
-          "notNull": false
+          "notNull": false,
+          "default": "'web'"
+        },
+        "published_at": {
+          "name": "published_at",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "now()"
         }
       },
       "indexes": {},
