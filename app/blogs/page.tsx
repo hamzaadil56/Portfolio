@@ -18,7 +18,7 @@ export default async function Page() {
 	return (
 		<div className="py-8 px-4 md:px-20">
 			<h1 className="text-3xl font-bold mb-8 text-light-gray">Blogs</h1>
-			<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+			<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-between items-stretch">
 				{blogs.map((blog) => (
 					<Link
 						href={blog.url || "#"}
@@ -26,7 +26,7 @@ export default async function Page() {
 						rel="noopener noreferrer"
 						key={blog.id}
 					>
-						<Card className="overflow-hidden border-0 max-w-sm shadow-sm bg-secondary-gray cursor-pointer transition-shadow hover:shadow-md">
+						<Card className="overflow-hidden border-0 w-full h-full shadow-sm bg-secondary-gray cursor-pointer transition-shadow hover:shadow-md">
 							<div className="relative w-full">
 								<Image
 									src={blog.image}
