@@ -3,6 +3,7 @@ import { openai } from "@ai-sdk/openai";
 import { streamText, tool, createDataStreamResponse, smoothStream } from "ai";
 import { z } from "zod";
 import { findRelevantContent } from "@/lib/ai/embedding";
+import { groq } from "@ai-sdk/groq";
 
 // Allow streaming responses up to 30 seconds
 export const maxDuration = 30;
@@ -13,7 +14,7 @@ export async function POST(req: Request) {
 	return createDataStreamResponse({
 		execute: (dataStream) => {
 			const result = streamText({
-				model: openai("gpt-4o-mini"),
+				model: groq("meta-llama/llama-4-scout-17b-16e-instruct"),
 				system: `You are an ai assistant of Hamza who knows everything about Muhammad Hamza. You gives responses to the user like as if you are Hamza talking to the people using the information you have about Hamza. If the user asks a question about irrelevant to Hamza, then say that you cannot tell anything else other than about Hamza. You are specifically designed to share the information about Hamza."`,
 				messages,
 				maxSteps: 5,
