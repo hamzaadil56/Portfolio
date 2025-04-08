@@ -22,6 +22,7 @@ export async function POST(req: Request) {
 		const titleField = formData.get("title");
 		const descriptionField = formData.get("description");
 		const categoryField = formData.get("category");
+		const url = formData.get("url");
 
 		// Validate that all required fields are provided
 		if (!imageField || !titleField || !descriptionField) {
@@ -46,6 +47,7 @@ export async function POST(req: Request) {
 				title: titleField.toString(),
 				description: descriptionField.toString(),
 				category: categoryField?.toString(),
+				url: url?.toString(),
 			})
 			.returning();
 

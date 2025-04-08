@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { NextResponse } from "next/server";
 import { db } from "@/lib/db"; // adjust the path as needed
 import { blogsSchema } from "@/lib/db/schema/blog"; // adjust the path based on your project structure
