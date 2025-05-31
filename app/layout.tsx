@@ -21,7 +21,7 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en">
-			<body className={`${lexend.className}  bg-main-gray`}>
+			<body className={`${lexend.className}  bg-black/90`}>
 				<main className="min-h-screen justify-between flex flex-col">
 					<Header />
 					{children}

@@ -9,7 +9,7 @@ import Footer from "@/components/layout/Footer";
 export default function Home() {
 	return (
 		<>
-			<Hero />
+			<Hero title="We transform ideas into" isHomePage={true} />
 			{/* <About />
       <Projects />
       <Skills />
