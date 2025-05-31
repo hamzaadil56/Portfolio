@@ -1,4 +1,4 @@
-import Navbar from "@/components/layout/Navbar";
+import Header from "@/components/layout/Header";
 import "./globals.css";
 import { Lexend, Poppins } from "next/font/google";
 import Footer from "@/components/layout/Footer";
@@ -13,7 +13,6 @@ const lexend = Lexend({
 	subsets: ["latin"],
 });
 
-
 export default function RootLayout({
 	children,
 }: {
@@ -23,7 +22,7 @@ export default function RootLayout({
 		<html lang="en">
 			<body className={`${lexend.className}  bg-main-gray`}>
 				<main className="min-h-screen justify-between flex flex-col">
-					<Navbar />
+					<Header />
 					{children}
 					<Footer />
 				</main>
