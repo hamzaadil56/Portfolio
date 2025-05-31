@@ -1,117 +1,57 @@
 "use client";
 
-import React from "react";
-import { useState, useEffect } from "react";
-import styles from "./navbar.module.css";
-import { useRef } from "react";
-import { usePathname } from "next/navigation";
-import Image from "next/image";
-import Logo from "@/assets/logos/Hamza-logo.png";
+import React, { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { motion } from "motion/react";
+import Logo from "@/assets/logos/Hamza-logo.png";
 
 const Navbar = () => {
-	const [isOpen, setIsOpen] = useState(false);
-	const linksRef = useRef<HTMLUListElement>(null);
-	const linksRefContainer = useRef<HTMLDivElement>(null);
+	const pathname = usePathname();
+	const [activeLink, setActiveLink] = useState(pathname);
 
-	const currentPathname = usePathname();
-
-	useEffect(() => {
-		const linksHeight = linksRef.current?.getBoundingClientRect().height;
-		if (isOpen) {
-			linksRefContainer.current!.style.height = `${linksHeight}px`;
-		} else {
-			linksRefContainer.current!.style.height = `0px`;
-		}
-	}, [isOpen]);
+	const navLinks = [
+		{ name: "Home", path: "/" },
+		{ name: "About", path: "/about" },
+		{ name: "Projects", path: "/projects" },
+		{ name: "Skills", path: "/skills" },
+		{ name: "Contact", path: "/contact" },
+	];
 
 	return (
-		<nav className="z-10   mx-auto   w-full bg-gray-900 z-20 md:container-xl md:flex items-center justify-between md:px-20 text-gray-200  px-4  py-4  bg-main-gray">
-			<div className="flex  justify-between items-center md:w-1/5 ">
-				<div className="logo ">
-					<a href={"/"}>
-						<h1>Hamza</h1>
-					</a>
-				</div>
-				<div
-					onClick={() => {
-						setIsOpen(!isOpen);
-					}}
-					className={`${styles.menu_btn} md:hidden`}
-				>
-					<div
-						className={`${styles.menu_btn__burger} ${
-							isOpen ? styles.open : ""
-						} md:hidden`}
-					></div>
-				</div>
-			</div>
-			<div
-				ref={linksRefContainer}
-				className={`${styles.link_items} ${
-					isOpen ? styles.link_items_show : ""
-				}  transition-all md:flex  md:justify-end md:w-4/5`}
-			>
-				<ul
-					ref={linksRef}
-					className="md:flex  divide-y-[1px] divide-gray-600 divide-solid md:divide-none items-center"
-				>
-					<>
-						<Link href="/#about">
-							<li
-								className={` ${
-									currentPathname === "/"
-										? `${styles.active}`
-										: `${styles.hover_underline_animation}`
-								} py-3 cursor-pointer
-            text-gray-400  text-center  md:ml-5 decoration-none`}
+		<nav className="fixed bottom-6 left-1/2 -translate-x-1/2 w-full max-w-2xl px-4 z-50">
+			<div className="relative bg-black/40 backdrop-blur-lg rounded-full border border-white/20 shadow-lg">
+				<div className="flex justify-around items-center h-16">
+					{navLinks.map((link) => (
+						<Link
+							key={link.path}
+							href={link.path}
+							className="relative px-4 py-2 text-sm font-medium"
+							onClick={() => setActiveLink(link.path)}
+						>
+							<span
+								className={`transition-colors duration-200 ${
+									activeLink === link.path
+										? "text-white"
+										: "text-gray-300 hover:text-white"
+								}`}
 							>
-								About
-							</li>
+								{link.name}
+							</span>
+							{activeLink === link.path && (
+								<motion.div
+									layoutId="activeLink"
+									className="absolute inset-0 bg-white/20 rounded-full -z-10"
+									transition={{
+										type: "spring",
+										stiffness: 380,
+										damping: 30,
+									}}
+								/>
+							)}
 						</Link>
-						<Link href="/projects">
-							<li
-								className={` ${
-									currentPathname === "/projects"
-										? `${styles.active}`
-										: `${styles.hover_underline_animation}`
-								} py-3 cursor-pointer
-            text-gray-400  text-center  md:ml-5 decoration-none`}
-							>
-								Projects
-							</li>
-						</Link>
-						<a href="/blogs">
-							<li
-								className={` ${
-									currentPathname === "/blogs"
-										? `${styles.active}`
-										: `${styles.hover_underline_animation}`
-								} py-3 cursor-pointer
-            text-gray-400  text-center  md:ml-5 decoration-none`}
-							>
-								Blogs
-							</li>
-						</a>
-						{/* <a href="#contact">
-								<li
-									className={` ${
-										currentPathname === "/#contact"
-											? `${styles.active}`
-											: `${styles.hover_underline_animation}`
-									} py-3 cursor-pointer
-            text-gray-400  text-center  md:ml-5 decoration-none`}
-								>
-									Contact
-								</li>
-							</a> */}
-					</>
-				</ul>
-				{/* <div className="apply-now-btn justify-center flex items-center">
-          <Link href={"https://www.piaic.org/"}>
-            <Button text="Hire Me" />
-          </Link>
-        </div> */}
+					))}
+				</div>
 			</div>
 		</nav>
 	);

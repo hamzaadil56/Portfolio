@@ -2,6 +2,7 @@ import Header from "@/components/layout/Header";
 import "./globals.css";
 import { Lexend, Poppins } from "next/font/google";
 import Footer from "@/components/layout/Footer";
+import Navbar from "@/components/layout/Navbar";
 
 export const metadata = {
 	title: "Muhammad Hamza",
@@ -25,6 +26,7 @@ export default function RootLayout({
 					<Header />
 					{children}
 					<Footer />
+					<Navbar />
 				</main>
 			</body>
 		</html>
