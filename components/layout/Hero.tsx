@@ -63,12 +63,12 @@ const Hero = ({ title, isHomePage = false }: HeroProps) => {
 
 	return (
 		<div className="h-screen w-full flex items-center">
-			<div className="container mx-auto px-4">
+			<div className="  px-8">
 				<div className="max-w-2xl">
 					{isHomePage ? (
 						<div className="space-y-2">
-							<h1 className="text-4xl md:text-5xl font-bold text-light-gray">
-								We transform ideas into
+							<h1 className="text-4xl md:text-7xl font-light italic text-light-gray">
+								{title}
 							</h1>
 							<div className="h-12">
 								<AnimatePresence mode="wait">
@@ -78,7 +78,7 @@ const Hero = ({ title, isHomePage = false }: HeroProps) => {
 										animate={{ y: 0, opacity: 1 }}
 										exit={{ y: -20, opacity: 0 }}
 										transition={{ duration: 0.3 }}
-										className="text-4xl md:text-5xl font-bold text-light-gray"
+										className="text-4xl md:text-7xl font-normal text-light-gray"
 									>
 										{changingWords[currentWordIndex]}
 									</motion.h2>
@@ -86,12 +86,7 @@ const Hero = ({ title, isHomePage = false }: HeroProps) => {
 							</div>
 						</div>
 					) : (
-						<motion.h1
-							initial={{ opacity: 0, y: 20 }}
-							animate={{ opacity: 1, y: 0 }}
-							transition={{ duration: 0.5 }}
-							className="text-4xl md:text-5xl font-bold text-light-gray"
-						>
+						<motion.h1 className="text-4xl md:text-7xl font-normal text-light-gray">
 							{title}
 						</motion.h1>
 					)}
