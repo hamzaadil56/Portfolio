@@ -7,7 +7,7 @@ import PageTransition from "@/components/widgets/PageTransition";
 
 const About = () => {
 	return (
-		<div className="bg-black w-[100vw] min-h-screen">
+		<div className="bg-black w-[100vw] min-h-screen rounded-3xl">
 			<Header />
 			<Hero
 				title="Ask about me from my AI assistant"

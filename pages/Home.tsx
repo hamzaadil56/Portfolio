@@ -7,7 +7,7 @@ import PageTransition from "@/components/widgets/PageTransition";
 
 const Home = () => {
 	return (
-		<div className="bg-black text-white min-h-screen">
+		<div className="bg-black text-white min-h-screen rounded-3xl">
 			<Header />
 			<Hero title="I transform ideas into" isHomePage={true} />
 		</div>

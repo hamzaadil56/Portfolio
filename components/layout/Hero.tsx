@@ -62,7 +62,7 @@ const Hero = ({ title, isHomePage = false }: HeroProps) => {
 	};
 
 	return (
-		<div className="h-screen w-full flex items-center">
+		<div className="h-screen w-full flex items-center ">
 			<div className="  px-8">
 				<div className="max-w-2xl">
 					{isHomePage ? (

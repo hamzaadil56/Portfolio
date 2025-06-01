@@ -36,15 +36,16 @@ const AnimatingPagesWrapper = ({ pages }: { pages: React.ReactNode[] }) => {
 							<motion.div
 								key={index}
 								initial={{
-									translateY: 500,
+									translateY: 800,
 								}}
 								animate={{
 									translateY: 0,
 								}}
 								transition={{
-									duration: 2,
+									duration: 0.75,
+									type: "easeInOut",
 								}}
-								className="w-full absolute top-0 left-0 transition-all z-20"
+								className="w-full absolute top-0 left-0 transition-all z-20 rounded-3xl"
 							>
 								{page}
 							</motion.div>
@@ -60,9 +61,9 @@ const AnimatingPagesWrapper = ({ pages }: { pages: React.ReactNode[] }) => {
 									scale: activePage.previousPageScale,
 								}}
 								transition={{
-									duration: 2,
+									duration: 1,
 								}}
-								className="w-full absolute top-0 left-0 transition-all z-10"
+								className="w-full absolute top-0 left-0 transition-all z-10 rounded-3xl"
 							>
 								{page}
 							</motion.div>

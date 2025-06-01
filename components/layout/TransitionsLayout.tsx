@@ -30,7 +30,7 @@ export default function PageTransitionLayout({
 			const timer = setTimeout(() => {
 				setDelayedPathname(pathname);
 				handlePageAnimation(false);
-			}, 5000);
+			}, 1000);
 		}
 	}, [pathname]);
 

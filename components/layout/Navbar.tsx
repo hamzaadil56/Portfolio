@@ -3,9 +3,17 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import Logo from "@/assets/logos/Hamza-logo.png";
 import { usePagesContext } from "@/context/PagesContext";
+
+const navLinks = [
+	{ name: "Intro", path: "/" },
+	{ name: "About", path: "/about" },
+	{ name: "Projects", path: "/projects" },
+	{ name: "Experience", path: "/experience" },
+	{ name: "Blogs", path: "/blogs" },
+];
 
 const Navbar = () => {
 	const pathname = usePathname();
@@ -17,50 +25,53 @@ const Navbar = () => {
 		// handleActivePage(index, type);
 	};
 
-	const navLinks = [
-		{ name: "Home", path: "/" },
-		{ name: "About", path: "/about" },
-		{ name: "Projects", path: "/projects" },
-		{ name: "Skills", path: "/skills" },
-		{ name: "Contact", path: "/contact" },
-	];
-
 	return (
-		<nav className="fixed bottom-6 left-1/2 -translate-x-1/2 w-full max-w-2xl px-4 z-[1000]">
-			<div className="relative bg-black/40 backdrop-blur-lg rounded-full border border-white/20 shadow-lg">
-				<div className="flex justify-around items-center h-16">
-					{navLinks.map((link, index) => (
+		<nav className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 w-auto">
+			<div className="flex items-center bg-[#181818] rounded-full  py-2">
+				{navLinks.map((link) => {
+					const isActive = activeLink === link.path;
+					return (
 						<Link
 							key={link.path}
 							href={link.path}
-							className="relative px-4 py-2 text-sm font-medium"
+							className="relative mx-2"
 							onClick={() =>
-								handleLinkClick(link.path, index, link.path)
+								handleLinkClick(link.path, 0, link.path)
 							}
 						>
-							<span
-								className={`transition-colors duration-200 ${
-									activeLink === link.path
-										? "text-white"
-										: "text-gray-300 hover:text-white"
-								}`}
-							>
-								{link.name}
+							<span className="relative flex items-center">
+								{isActive && (
+									<motion.span
+										layoutId="active-pill"
+										className="absolute inset-0 z-0 rounded-full bg-white"
+										transition={{
+											type: "spring",
+											stiffness: 500,
+											damping: 30,
+										}}
+									/>
+								)}
+								<span
+									className={`relative z-10 px-6 py-2 text-lg transition-colors duration-200 ${
+										isActive
+											? "text-black font-medium"
+											: "text-white font-normal"
+									}`}
+									style={{ fontFamily: "inherit" }}
+								>
+									{link.name}
+								</span>
+								{/* {link.badge && (
+									<span className="ml-2 flex items-center">
+										<span className="inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white rounded-full bg-gradient-to-tr from-[#6f3cff] to-[#e14eca] shadow-md">
+											{link.badge}
+										</span>
+									</span>
+								)} */}
 							</span>
-							{activeLink === link.path && (
-								<motion.div
-									layoutId="activeLink"
-									className="absolute inset-0 bg-white/20 rounded-full -z-10"
-									transition={{
-										type: "spring",
-										stiffness: 380,
-										damping: 30,
-									}}
-								/>
-							)}
 						</Link>
-					))}
-				</div>
+					);
+				})}
 			</div>
 		</nav>
 	);

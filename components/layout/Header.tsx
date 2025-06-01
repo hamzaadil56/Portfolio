@@ -4,7 +4,7 @@ import Logo from "@/assets/logos/Hamza-logo.png";
 
 const Header = () => {
 	return (
-		<header className="fixed top-0 left-0 right-0 flex justify-between items-center px-8 py-4 shadow-sm  backdrop-blur-lg z-50">
+		<header className="fixed top-0 left-0 right-0 flex justify-between items-center px-8 py-4 shadow-sm  backdrop-blur-lg z-50 rounded-3xl">
 			<div className="flex items-center">
 				<p className="text-lg md:text-xl font-light text-gray-200">
 					Exploring Digital Future.{" "}
