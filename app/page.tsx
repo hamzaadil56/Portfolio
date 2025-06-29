@@ -21,7 +21,7 @@ export default function Page() {
       <Contact /> */}
 			{/* <AnimatingPagesWrapper pages={pages} /> */}
 
-			{isPageAnimation ? null : <Home />}
+			{isPageAnimation ? <></> : <Home />}
 		</>
 	);
 }
