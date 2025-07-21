@@ -1,10 +1,20 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  images: { unoptimized: true },
-  trailingSlash: true,
+	eslint: {
+		ignoreDuringBuilds: true,
+	},
+	images: {
+		domains: ["images.pexels.com"],
+		remotePatterns: [
+			{
+				protocol: "https",
+				hostname: "images.pexels.com",
+				port: "",
+				pathname: "/**",
+			},
+		],
+	},
+	trailingSlash: true,
 };
 
 module.exports = nextConfig;
