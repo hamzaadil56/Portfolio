@@ -64,9 +64,9 @@ export default function Home() {
 			<div
 				className="absolute w-96 h-96 bg-blue-500/5 dark:bg-blue-500/5 rounded-full blur-2xl hidden lg:block pointer-events-none"
 				style={{
-					left: mousePosition.x - 192,
-					top: mousePosition.y - 192,
-					transition: "all 0.15s ease-out",
+					transform: `translate(${mousePosition.x - 192}px, ${
+						mousePosition.y - 192
+					}px)`,
 					willChange: "transform",
 				}}
 			/>
