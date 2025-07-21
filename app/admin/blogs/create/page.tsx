@@ -6,6 +6,7 @@ import { ArrowLeft, Save, Plus, X, Shield, LogOut } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { isAdminAuthenticated, clearAdminSession } from '@/lib/auth';
+import { OptimizedBackgroundAnimation } from '@/components/ui/optimized-motion';
 
 export default function AdminCreateBlog() {
   const router = useRouter();
@@ -114,33 +115,20 @@ export default function AdminCreateBlog() {
   };
 
   if (authLoading) {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100 dark:from-slate-950 dark:via-blue-950 dark:to-slate-900 flex items-center justify-center transition-colors duration-500">
-        <div className="flex items-center gap-3 text-slate-800 dark:text-white">
-          <div className="w-8 h-8 border-2 border-slate-400 dark:border-white/30 border-t-slate-800 dark:border-t-white rounded-full animate-spin" />
-          <span className="text-xl">Verifying authentication...</span>
-        </div>
-      </div>
-    );
+    		return (
+			<div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100 dark:from-slate-950 dark:via-blue-950 dark:to-slate-900 flex items-center justify-center transition-colors duration-300">
+				<div className="flex items-center gap-3 text-slate-800 dark:text-white">
+					<div className="w-8 h-8 border-2 border-slate-400 dark:border-white/30 border-t-slate-800 dark:border-t-white rounded-full animate-spin" />
+					<span className="text-xl">Verifying authentication...</span>
+				</div>
+			</div>
+		);
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100 dark:from-slate-950 dark:via-blue-950 dark:to-slate-900 transition-colors duration-500">
-      {/* Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <motion.div
-          className="absolute top-20 right-20 w-72 h-72 bg-purple-500/5 dark:bg-purple-500/5 rounded-full blur-3xl"
-          animate={{ 
-            scale: [1, 1.2, 1],
-            rotate: [0, 180, 360]
-          }}
-          transition={{ 
-            duration: 20, 
-            repeat: Infinity, 
-            ease: "linear" 
-          }}
-        />
-      </div>
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100 dark:from-slate-950 dark:via-blue-950 dark:to-slate-900 transition-colors duration-300">
+      {/* Optimized background animation */}
+      <OptimizedBackgroundAnimation />
 
       {/* Navigation */}
       <motion.nav 

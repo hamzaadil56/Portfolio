@@ -25,6 +25,12 @@ export default function Home() {
 	const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
 	useEffect(() => {
+		// Ensure page starts at the top
+		if (typeof window !== "undefined") {
+			window.history.scrollRestoration = "manual";
+			window.scrollTo(0, 0);
+		}
+
 		const updateMousePosition = (e: MouseEvent) => {
 			setMousePosition({ x: e.clientX, y: e.clientY });
 		};

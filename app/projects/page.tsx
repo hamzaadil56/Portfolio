@@ -15,6 +15,12 @@ import {
 import Link from "next/link";
 import Image from "next/image";
 import ResponsiveNav from "@/components/ui/responsive-nav";
+import {
+	OptimizedBackgroundAnimation,
+	optimizedFadeInUp,
+	optimizedStaggerContainer,
+	optimizedViewport,
+} from "@/components/ui/optimized-motion";
 
 export default function Projects() {
 	const projects = [
@@ -223,34 +229,9 @@ export default function Projects() {
 	};
 
 	return (
-		<div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100 dark:from-slate-950 dark:via-blue-950 dark:to-slate-900 transition-colors duration-500">
-			{/* Background Elements */}
-			<div className="absolute inset-0 overflow-hidden">
-				<motion.div
-					className="absolute top-20 right-20 w-72 h-72 bg-purple-500/5 dark:bg-purple-500/5 rounded-full blur-3xl"
-					animate={{
-						scale: [1, 1.2, 1],
-						rotate: [0, 180, 360],
-					}}
-					transition={{
-						duration: 20,
-						repeat: Infinity,
-						ease: "linear",
-					}}
-				/>
-				<motion.div
-					className="absolute bottom-20 left-20 w-64 h-64 bg-cyan-500/5 dark:bg-cyan-500/5 rounded-full blur-3xl"
-					animate={{
-						scale: [1.2, 1, 1.2],
-						rotate: [360, 180, 0],
-					}}
-					transition={{
-						duration: 15,
-						repeat: Infinity,
-						ease: "linear",
-					}}
-				/>
-			</div>
+		<div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100 dark:from-slate-950 dark:via-blue-950 dark:to-slate-900 transition-colors duration-300">
+			{/* Optimized background animation */}
+			<OptimizedBackgroundAnimation />
 
 			{/* Navigation */}
 			<ResponsiveNav
@@ -266,7 +247,7 @@ export default function Projects() {
 				{/* Header */}
 				<motion.div
 					className="text-center mb-12 md:mb-16"
-					variants={fadeInUp}
+					variants={optimizedFadeInUp}
 					initial="initial"
 					animate="animate"
 				>
@@ -286,16 +267,19 @@ export default function Projects() {
 				{/* Projects Grid */}
 				<motion.div
 					className="space-y-8 md:space-y-12"
-					variants={staggerContainer}
+					variants={optimizedStaggerContainer}
 					initial="initial"
 					animate="animate"
 				>
 					{projects.map((project, index) => (
 						<motion.div
 							key={index}
-							variants={fadeInUp}
-							whileHover={{ y: -5 }}
-							className={`group bg-white/50 dark:bg-slate-800/20 backdrop-blur-sm border border-slate-200 dark:${project.colors.secondary} rounded-2xl md:rounded-3xl overflow-hidden hover:border-opacity-60 transition-all duration-500`}
+							variants={optimizedFadeInUp}
+							whileHover={{
+								y: -2,
+								transition: { duration: 0.2 },
+							}}
+							className={`group bg-white/50 dark:bg-slate-800/20 backdrop-blur-sm border border-slate-200 dark:${project.colors.secondary} rounded-2xl md:rounded-3xl overflow-hidden hover:border-opacity-60 transition-all duration-300`}
 						>
 							<div className="grid lg:grid-cols-2 gap-0">
 								{/* Project Image */}

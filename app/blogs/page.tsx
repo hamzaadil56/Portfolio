@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { ArrowLeft, ExternalLink, Calendar, Clock, Tag, Loader2 } from 'lucide-react';
 import Link from 'next/link';
 import ResponsiveNav from '@/components/ui/responsive-nav';
+import { OptimizedBackgroundAnimation, optimizedFadeInUp, optimizedStaggerContainer, optimizedViewport } from '@/components/ui/optimized-motion';
 
 interface Blog {
   id: string;
@@ -49,23 +50,11 @@ export default function Blogs() {
     fetchBlogs();
   }, []);
 
-  const fadeInUp = {
-    initial: { opacity: 0, y: 60 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.8, ease: "easeOut" }
-  };
 
-  const staggerContainer = {
-    animate: {
-      transition: {
-        staggerChildren: 0.2
-      }
-    }
-  };
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100 dark:from-slate-950 dark:via-blue-950 dark:to-slate-900 flex items-center justify-center transition-colors duration-500">
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100 dark:from-slate-950 dark:via-blue-950 dark:to-slate-900 flex items-center justify-center transition-colors duration-300">
         <div className="flex items-center gap-3 text-slate-800 dark:text-white">
           <Loader2 className="w-8 h-8 animate-spin" />
           <span className="text-xl">Loading blogs...</span>
@@ -76,7 +65,7 @@ export default function Blogs() {
 
   if (error) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100 dark:from-slate-950 dark:via-blue-950 dark:to-slate-900 flex items-center justify-center transition-colors duration-500">
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100 dark:from-slate-950 dark:via-blue-950 dark:to-slate-900 flex items-center justify-center transition-colors duration-300">
         <div className="text-center">
           <div className="text-red-500 dark:text-red-400 text-xl mb-4">Error: {error}</div>
           <button 
@@ -91,34 +80,9 @@ export default function Blogs() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100 dark:from-slate-950 dark:via-blue-950 dark:to-slate-900 transition-colors duration-500">
-      {/* Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <motion.div
-          className="absolute top-20 right-20 w-72 h-72 bg-purple-500/5 dark:bg-purple-500/5 rounded-full blur-3xl"
-          animate={{ 
-            scale: [1, 1.2, 1],
-            rotate: [0, 180, 360]
-          }}
-          transition={{ 
-            duration: 20, 
-            repeat: Infinity, 
-            ease: "linear" 
-          }}
-        />
-        <motion.div
-          className="absolute bottom-20 left-20 w-64 h-64 bg-cyan-500/5 dark:bg-cyan-500/5 rounded-full blur-3xl"
-          animate={{ 
-            scale: [1.2, 1, 1.2],
-            rotate: [360, 180, 0]
-          }}
-          transition={{ 
-            duration: 15, 
-            repeat: Infinity, 
-            ease: "linear" 
-          }}
-        />
-      </div>
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100 dark:from-slate-950 dark:via-blue-950 dark:to-slate-900 transition-colors duration-300">
+      {/* Optimized background animation */}
+      <OptimizedBackgroundAnimation />
 
       {/* Navigation */}
       <ResponsiveNav 
@@ -134,7 +98,7 @@ export default function Blogs() {
         {/* Header */}
         <motion.div 
           className="text-center mb-12 md:mb-16"
-          variants={fadeInUp}
+          variants={optimizedFadeInUp}
           initial="initial"
           animate="animate"
         >
@@ -156,7 +120,7 @@ export default function Blogs() {
             className="text-center py-16"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6 }}
           >
             <div className="text-slate-500 dark:text-white/60 text-xl mb-4">No blogs found</div>
             <p className="text-slate-400 dark:text-white/50">Check back soon for new blog posts!</p>
@@ -164,16 +128,16 @@ export default function Blogs() {
         ) : (
           <motion.div 
             className="space-y-6 md:space-y-8"
-            variants={staggerContainer}
+            variants={optimizedStaggerContainer}
             initial="initial"
             animate="animate"
           >
             {blogs.map((blog, index) => (
               <motion.article
                 key={blog.id}
-                variants={fadeInUp}
-                whileHover={{ y: -5 }}
-                className="group bg-white/50 dark:bg-slate-800/20 backdrop-blur-sm border border-slate-200 dark:border-white/10 rounded-2xl md:rounded-3xl overflow-hidden hover:border-blue-400/30 transition-all duration-500"
+                variants={optimizedFadeInUp}
+                whileHover={{ y: -2, transition: { duration: 0.2 } }}
+                className="group bg-white/50 dark:bg-slate-800/20 backdrop-blur-sm border border-slate-200 dark:border-white/10 rounded-2xl md:rounded-3xl overflow-hidden hover:border-blue-400/30 transition-all duration-300"
               >
                 <div className="p-6 md:p-8 lg:p-12">
                   <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-6">
@@ -240,15 +204,15 @@ export default function Blogs() {
           className="text-center mt-16 md:mt-20 py-12 md:py-16"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          viewport={optimizedViewport}
         >
           <motion.h2 
             className="text-3xl md:text-4xl font-bold text-slate-800 dark:text-white mb-4 md:mb-6 heading-fix"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            viewport={optimizedViewport}
           >
             Want to Discuss These Topics?
           </motion.h2>
@@ -256,16 +220,16 @@ export default function Blogs() {
             className="text-lg md:text-xl text-slate-600 dark:text-white/70 mb-6 md:mb-8 max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            viewport={optimizedViewport}
           >
             I love discussing technology, AI, and programming. Feel free to reach out if you'd like to chat about any of these topics!
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            viewport={optimizedViewport}
           >
             <a 
               href="mailto:hamzaadil56@gmail.com"
