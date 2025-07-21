@@ -11,6 +11,8 @@ import {
 	Briefcase,
 	GraduationCap,
 	Award,
+	Linkedin,
+	Twitter,
 } from "lucide-react";
 import Link from "next/link";
 import ResponsiveNav from "@/components/ui/responsive-nav";
@@ -135,15 +137,17 @@ export default function Home() {
 							href="https://www.linkedin.com/in/muhammad-hamza-adil/"
 							target="_blank"
 							className="text-slate-500 dark:text-white/60 hover:text-slate-700 dark:hover:text-white transition-colors"
+							aria-label="LinkedIn"
 						>
-							<ExternalLink className="w-6 h-6" />
+							<Linkedin className="w-6 h-6" />
 						</a>
 						<a
-							href="https://hamzaadil.dev"
+							href="https://x.com/hamza_chemE_dev"
 							target="_blank"
 							className="text-slate-500 dark:text-white/60 hover:text-slate-700 dark:hover:text-white transition-colors"
+							aria-label="Twitter"
 						>
-							<ExternalLink className="w-6 h-6" />
+							<Twitter className="w-6 h-6" />
 						</a>
 					</motion.div>
 				</div>
