@@ -77,7 +77,6 @@ export default function Home() {
 			{/* Hero Section */}
 			<motion.section
 				className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 py-12 md:py-20"
-				variants={optimizedStaggerContainer}
 				initial="initial"
 				animate="animate"
 			>

@@ -247,7 +247,6 @@ export default function Projects() {
 				{/* Header */}
 				<motion.div
 					className="text-center mb-12 md:mb-16"
-					variants={optimizedFadeInUp}
 					initial="initial"
 					animate="animate"
 				>
@@ -267,7 +266,6 @@ export default function Projects() {
 				{/* Projects Grid */}
 				<motion.div
 					className="space-y-8 md:space-y-12"
-					variants={optimizedStaggerContainer}
 					initial="initial"
 					animate="animate"
 				>
