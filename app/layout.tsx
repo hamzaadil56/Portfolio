@@ -1,18 +1,31 @@
-import Navbar from "@/components/layout/Navbar";
 import "./globals.css";
-import { Lexend, Poppins } from "next/font/google";
-import Footer from "@/components/layout/Footer";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import { ThemeProvider } from "@/lib/theme-context";
 
-export const metadata = {
-	title: "Muhammad Hamza",
-	description: "Muhammad Hamza's Portfolio",
+const inter = Inter({ subsets: ["latin"] });
+
+export const metadata: Metadata = {
+	title: "Muhammad Hamza - Full Stack Engineer",
+	description:
+		"Experienced Full Stack Engineer specializing in React.js, AI/ML, and cloud architecture. Building scalable web applications and innovative solutions.",
+	keywords: [
+		"Full Stack Engineer",
+		"React.js",
+		"Next.js",
+		"AI/ML",
+		"Cloud Architecture",
+		"Software Developer",
+	],
+	authors: [{ name: "Muhammad Hamza" }],
+	openGraph: {
+		title: "Muhammad Hamza - Full Stack Engineer",
+		description:
+			"Experienced Full Stack Engineer specializing in React.js, AI/ML, and cloud architecture.",
+		type: "website",
+		url: "https://hamzaadil.dev",
+	},
 };
-
-const lexend = Lexend({
-	weight: ["300", "400", "500", "600"],
-	subsets: ["latin"],
-});
-
 
 export default function RootLayout({
 	children,
@@ -20,13 +33,9 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="en">
-			<body className={`${lexend.className}  bg-main-gray`}>
-				<main className="min-h-screen justify-between flex flex-col">
-					<Navbar />
-					{children}
-					<Footer />
-				</main>
+		<html lang="en" suppressHydrationWarning>
+			<body className={inter.className}>
+				<ThemeProvider>{children}</ThemeProvider>
 			</body>
 		</html>
 	);

@@ -1,8 +1,20 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    appDir: true,
-  },
-}
+	eslint: {
+		ignoreDuringBuilds: true,
+	},
+	images: {
+		domains: ["images.pexels.com"],
+		remotePatterns: [
+			{
+				protocol: "https",
+				hostname: "images.pexels.com",
+				port: "",
+				pathname: "/**",
+			},
+		],
+	},
+	trailingSlash: true,
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
