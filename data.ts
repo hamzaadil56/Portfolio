@@ -51,7 +51,7 @@ export const projects = [
 		],
 		category: "Fintech",
 		year: "2025",
-		team: "5 developers",
+		team: "Team of professional software engineers",
 		status: "Production",
 		impact: "Serving thousands of users",
 		colors: {
@@ -73,8 +73,7 @@ export const projects = [
 			"OpenAI",
 			"LangChain",
 			".NET Core",
-			"Docker",
-			"PostgreSQL",
+			"MongoDB",
 		],
 		achievements: [
 			"Worked under Technical Lead to deliver scalable microservices architectures",
@@ -84,7 +83,7 @@ export const projects = [
 		],
 		category: "AI",
 		year: "2024",
-		team: "3 developers",
+		team: "2 developers",
 		status: "Production",
 		impact: "Automated testing for 50+ projects",
 		colors: {
@@ -190,19 +189,76 @@ export const projects = [
 		link: "https://www.governorsindh.com/",
 	},
 	{
+		title: "CareAI",
+		subtitle:
+			"Intelligent Health Care Administration and Donation Allocation System",
+		description:
+			"Developed an intelligent healthcare administration and donation allocation system that leverages AI to ensure fairness, transparency, and efficiency in healthcare access for financially disadvantaged patients. ",
+		image: "https://images.pexels.com/photos/8439093/pexels-photo-8439093.jpeg",
+		technologies: [
+			"Langchain",
+			"RAG",
+			"FastAPI",
+			"React.js",
+			"Vector DB",
+			"GROQ",
+		],
+		achievements: [
+			"Developed a comprehensive healthcare administration system using Langchain and RAG for efficient data retrieval and analysis",
+			"Implemented a donation allocation system that prioritizes urgent cases and ensures fairness in healthcare access",
+			"Deployed the application on vercel for frontend and backend on Render cloud platform.",
+			"Received international recognition and appreciationfrom the technical mentors of the Lokahi hackathon organized by lablab.ai",
+		],
+		category: "AI",
+		year: "2024",
+		team: "2 developers",
+		status: "Prototype",
+		impact: "Received international recognition and appreciation",
+		colors: {
+			primary: "from-yellow-600 to-orange-600",
+			secondary: "border-yellow-400/30",
+			accent: "text-yellow-500 dark:text-yellow-400",
+		},
+		link: "https://care-ai-eight.vercel.app/",
+	},
+	{
+		title: "HiredMind",
+		subtitle: "An AI Agentic Application To Automate The Hiring Process.",
+		description:
+			"Architected an AI Agentic application which automates the hiring process by leveraging AI to streamline job posting, candidate screening, interview scheduling, and candidate evaluation. Used OpenAI Agents SDK, a python-based framework to design agentic workflows. Deployed the application on Vultr cloud platform to pitch the idea to the judges of the hackathon organized by lablab.ai",
+		image: "https://images.pexels.com/photos/8439093/pexels-photo-8439093.jpeg",
+		technologies: [
+			"OpenAI",
+			"RAG",
+			"FastAPI",
+			"Next.js",
+			"Llama 3",
+			"GROQ",
+		],
+		achievements: [
+			"Developed a comprehensive hiring process automation system using OpenAI Agents SDK",
+			"Implemented a candidate screening system that prioritizes urgent cases and ensures fairness in hiring access",
+			"Deployed the application on Vultr cloud platform.",
+		],
+		category: "AI",
+		year: "2025",
+		team: "6 developers",
+		status: "Prototype",
+		impact: "Learned to build agentic AI application.",
+		colors: {
+			primary: "from-yellow-600 to-orange-600",
+			secondary: "border-yellow-400/30",
+			accent: "text-yellow-500 dark:text-yellow-400",
+		},
+		link: "https://github.com/hamzaadil56/RYH-Hackathon-Vultr-Track",
+	},
+	{
 		title: "EQ Mentor",
 		subtitle: "AI-Powered Personalized Mentor (Hackathon Winner)",
 		description:
 			"Developed an innovative Generative AI-powered personalized mentoring platform that secured a top 10 position at the BWAI hackathon organized by GDGKolachi.",
 		image: "https://images.pexels.com/photos/8439093/pexels-photo-8439093.jpeg",
-		technologies: [
-			"OpenAI",
-			"Python",
-			"FastAPI",
-			"React.js",
-			"TensorFlow",
-			"Vector DB",
-		],
+		technologies: ["Gemini", "Python", "Streamlit"],
 		achievements: [
 			"Secured top 10 position in BWAI hackathon by GDGKolachi",
 			"Earned the 'Mentor' title for innovative AI solution",
