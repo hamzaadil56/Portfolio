@@ -26,7 +26,7 @@ export default function Experience() {
 			location: "Remote",
 			type: "Full-time",
 			description:
-				"Leading frontend development and system optimization for Pakistan's first digital Asset Management Company.",
+				"Leading frontend development of customer and admin portals and maintaining the backend systems.",
 			achievements: [
 				"Led frontend development of a customer portal based on React.js with a focus on performance and scalability",
 				"Resolved critical issues in a Blazor Server-based corporate portal to improve stability",
