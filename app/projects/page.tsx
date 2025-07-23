@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState, useMemo } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import {
 	ArrowLeft,
 	ExternalLink,
@@ -10,6 +11,7 @@ import {
 	Zap,
 	Database,
 	Globe,
+	Filter,
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -21,6 +23,26 @@ import {
 import { projects } from "@/data";
 
 export default function Projects() {
+	const [selectedCategory, setSelectedCategory] = useState<string>("All");
+
+	// Extract unique categories from projects
+	const categories = useMemo(() => {
+		const uniqueCategories = Array.from(
+			new Set(projects.map((project) => project.category))
+		);
+		return ["All", ...uniqueCategories];
+	}, []);
+
+	// Filter projects based on selected category
+	const filteredProjects = useMemo(() => {
+		if (selectedCategory === "All") {
+			return projects;
+		}
+		return projects.filter(
+			(project) => project.category === selectedCategory
+		);
+	}, [selectedCategory]);
+
 	return (
 		<div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100 dark:from-slate-950 dark:via-blue-950 dark:to-slate-900 transition-colors duration-300">
 			{/* Optimized background animation */}
@@ -56,143 +78,216 @@ export default function Projects() {
 					</p>
 				</motion.div>
 
-				{/* Projects Grid */}
+				{/* Filter Section */}
 				<motion.div
-					className="space-y-8 md:space-y-12"
-					initial="initial"
-					animate="animate"
+					className="mb-8 md:mb-12"
+					initial={{ opacity: 0, y: 20 }}
+					animate={{ opacity: 1, y: 0 }}
+					transition={{ duration: 0.5 }}
 				>
-					{projects.map((project, index) => (
-						<motion.div
-							key={index}
-							variants={optimizedFadeInUp}
-							whileHover={{
-								y: -2,
-								transition: { duration: 0.2 },
-							}}
-							className={`group bg-white/50 dark:bg-slate-800/20 backdrop-blur-sm border border-slate-200 dark:${project.colors.secondary} rounded-2xl md:rounded-3xl overflow-hidden hover:border-opacity-60 transition-all duration-300`}
-						>
-							<div className="grid lg:grid-cols-2 gap-0">
-								{/* Project Image */}
-								<div className="relative overflow-hidden lg:order-1 h-64 lg:h-auto">
-									<motion.div
-										className="w-full h-full"
-										whileHover={{ scale: 1.05 }}
-									>
-										<Image
-											src={project.image}
-											alt={project.title}
-											fill
-											className="object-cover group-hover:scale-110 transition-transform duration-700"
-											sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-											priority={index < 2}
-										/>
-									</motion.div>
-									<div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent"></div>
-									<div className="absolute top-4 left-4">
-										<span
-											className={`px-3 py-1 bg-gradient-to-r ${project.colors.primary} text-white rounded-full text-sm font-medium`}
-										>
-											{project.category}
-										</span>
-									</div>
-									<div className="absolute bottom-4 right-4 flex gap-2">
-										<a
-											href={project?.link}
-											target="_blank"
-											className={`w-10 h-10 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center ${project.colors.accent} hover:bg-white/20 transition-colors cursor-pointer`}
-										>
-											<ExternalLink className="w-5 h-5" />
-										</a>
-									</div>
-								</div>
-
-								{/* Project Content */}
-								<div className="p-6 md:p-8 lg:p-12 lg:order-2">
-									<div className="flex flex-wrap items-center gap-3 md:gap-4 mb-4">
-										<div className="flex items-center gap-2 text-slate-500 dark:text-white/60 text-sm">
-											<Calendar className="w-4 h-4" />
-											{project.year}
-										</div>
-										<div className="flex items-center gap-2 text-slate-500 dark:text-white/60 text-sm">
-											<Users className="w-4 h-4" />
-											{project.team}
-										</div>
-										<div
-											className={`px-3 py-1 bg-gradient-to-r ${project.colors.primary} bg-opacity-20 ${project.colors.accent} rounded-full text-sm`}
-										>
-											{project.status}
-										</div>
-									</div>
-
-									<h3 className="text-2xl md:text-3xl font-bold text-slate-800 dark:text-white mb-2 heading-fix">
-										{project.title}
-									</h3>
-									<h4
-										className={`text-base md:text-lg font-medium ${project.colors.accent} mb-4`}
-									>
-										{project.subtitle}
-									</h4>
-									<p className="text-slate-600 dark:text-white/70 mb-6 leading-relaxed text-sm md:text-base">
-										{project.description}
-									</p>
-
-									{/* Key Achievements */}
-									<div className="mb-6">
-										<h5 className="text-slate-800 dark:text-white font-semibold mb-3 flex items-center gap-2 text-sm md:text-base heading-fix">
-											<Zap className="w-4 h-4" />
-											Key Achievements
-										</h5>
-										<ul className="space-y-2">
-											{project.achievements.map(
-												(achievement, achIndex) => (
-													<li
-														key={achIndex}
-														className="flex items-start gap-3 text-slate-600 dark:text-white/70 text-xs md:text-sm"
-													>
-														<div
-															className={`w-2 h-2 ${project.colors.primary} bg-gradient-to-r rounded-full mt-2 flex-shrink-0`}
-														></div>
-														{achievement}
-													</li>
-												)
-											)}
-										</ul>
-									</div>
-
-									{/* Technologies */}
-									<div className="mb-6">
-										<h5 className="text-slate-800 dark:text-white font-semibold mb-3 flex items-center gap-2 text-sm md:text-base heading-fix">
-											<Code className="w-4 h-4" />
-											Technologies
-										</h5>
-										<div className="flex flex-wrap gap-2">
-											{project.technologies.map(
-												(tech, techIndex) => (
-													<span
-														key={techIndex}
-														className="px-2 md:px-3 py-1 bg-slate-200 dark:bg-slate-700/50 text-slate-700 dark:text-white/80 rounded-lg text-xs md:text-sm border border-slate-300 dark:border-white/10 hover:border-slate-400 dark:hover:border-white/20 transition-colors"
-													>
-														{tech}
-													</span>
-												)
-											)}
-										</div>
-									</div>
-
-									{/* Impact */}
-									<div className="flex items-center gap-2 text-slate-500 dark:text-white/60 text-sm">
-										<Globe className="w-4 h-4" />
-										<span className="font-medium">
-											Impact:
-										</span>
-										<span>{project.impact}</span>
-									</div>
-								</div>
-							</div>
-						</motion.div>
-					))}
+					<div className="flex flex-col items-center gap-4">
+						<div className="flex items-center gap-2 text-slate-600 dark:text-white/70">
+							<Filter className="w-5 h-5" />
+							<span className="font-medium">
+								Filter by Category:
+							</span>
+						</div>
+						<div className="flex flex-wrap justify-center gap-3">
+							{categories.map((category) => (
+								<motion.button
+									key={category}
+									onClick={() =>
+										setSelectedCategory(category)
+									}
+									className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+										selectedCategory === category
+											? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg shadow-blue-500/25"
+											: "bg-white/50 dark:bg-slate-800/50 text-slate-700 dark:text-white/70 hover:bg-white/70 dark:hover:bg-slate-800/70 border border-slate-200 dark:border-white/10"
+									}`}
+									whileHover={{ scale: 1.05 }}
+									whileTap={{ scale: 0.95 }}
+								>
+									{category}
+								</motion.button>
+							))}
+						</div>
+						{/* Results count */}
+						<div className="text-sm text-slate-500 dark:text-white/60">
+							{filteredProjects.length} project
+							{filteredProjects.length !== 1 ? "s" : ""} found
+						</div>
+					</div>
 				</motion.div>
+
+				{/* Projects Grid */}
+				<AnimatePresence mode="wait">
+					<motion.div
+						key={selectedCategory}
+						className="space-y-8 md:space-y-12"
+						initial={{ opacity: 0, y: 20 }}
+						animate={{ opacity: 1, y: 0 }}
+						exit={{ opacity: 0, y: -20 }}
+						transition={{ duration: 0.3 }}
+					>
+						{filteredProjects.length > 0 ? (
+							filteredProjects.map((project, index) => (
+								<motion.div
+									key={`${project.title}-${selectedCategory}`}
+									variants={optimizedFadeInUp}
+									initial="initial"
+									animate="animate"
+									transition={{ delay: index * 0.1 }}
+									whileHover={{
+										y: -2,
+										transition: { duration: 0.2 },
+									}}
+									className={`group bg-white/50 dark:bg-slate-800/20 backdrop-blur-sm border border-slate-200 dark:${project.colors.secondary} rounded-2xl md:rounded-3xl overflow-hidden hover:border-opacity-60 transition-all duration-300`}
+								>
+									<div className="grid lg:grid-cols-2 gap-0">
+										{/* Project Image */}
+										<div className="relative overflow-hidden lg:order-1 h-64 lg:h-auto">
+											<motion.div
+												className="w-full h-full"
+												whileHover={{ scale: 1.05 }}
+											>
+												<Image
+													src={project.image}
+													alt={project.title}
+													fill
+													className="object-cover group-hover:scale-110 transition-transform duration-700"
+													sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+													priority={index < 2}
+												/>
+											</motion.div>
+											<div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent"></div>
+											<div className="absolute top-4 left-4">
+												<span
+													className={`px-3 py-1 bg-gradient-to-r ${project.colors.primary} text-white rounded-full text-sm font-medium`}
+												>
+													{project.category}
+												</span>
+											</div>
+											<div className="absolute bottom-4 right-4 flex gap-2">
+												{project.link && (
+													<a
+														href={project.link}
+														target="_blank"
+														className={`w-10 h-10 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center ${project.colors.accent} hover:bg-white/20 transition-colors cursor-pointer`}
+													>
+														<ExternalLink className="w-5 h-5" />
+													</a>
+												)}
+											</div>
+										</div>
+
+										{/* Project Content */}
+										<div className="p-6 md:p-8 lg:p-12 lg:order-2">
+											<div className="flex flex-wrap items-center gap-3 md:gap-4 mb-4">
+												<div className="flex items-center gap-2 text-slate-500 dark:text-white/60 text-sm">
+													<Calendar className="w-4 h-4" />
+													{project.year}
+												</div>
+												<div className="flex items-center gap-2 text-slate-500 dark:text-white/60 text-sm">
+													<Users className="w-4 h-4" />
+													{project.team}
+												</div>
+												<div
+													className={`px-3 py-1 bg-gradient-to-r ${project.colors.primary} bg-opacity-20 ${project.colors.accent} rounded-full text-sm`}
+												>
+													{project.status}
+												</div>
+											</div>
+
+											<h3 className="text-2xl md:text-3xl font-bold text-slate-800 dark:text-white mb-2 heading-fix">
+												{project.title}
+											</h3>
+											<h4
+												className={`text-base md:text-lg font-medium ${project.colors.accent} mb-4`}
+											>
+												{project.subtitle}
+											</h4>
+											<p className="text-slate-600 dark:text-white/70 mb-6 leading-relaxed text-sm md:text-base">
+												{project.description}
+											</p>
+
+											{/* Key Achievements */}
+											<div className="mb-6">
+												<h5 className="text-slate-800 dark:text-white font-semibold mb-3 flex items-center gap-2 text-sm md:text-base heading-fix">
+													<Zap className="w-4 h-4" />
+													Key Achievements
+												</h5>
+												<ul className="space-y-2">
+													{project.achievements.map(
+														(
+															achievement,
+															achIndex
+														) => (
+															<li
+																key={achIndex}
+																className="flex items-start gap-3 text-slate-600 dark:text-white/70 text-xs md:text-sm"
+															>
+																<div
+																	className={`w-2 h-2 ${project.colors.primary} bg-gradient-to-r rounded-full mt-2 flex-shrink-0`}
+																></div>
+																{achievement}
+															</li>
+														)
+													)}
+												</ul>
+											</div>
+
+											{/* Technologies */}
+											<div className="mb-6">
+												<h5 className="text-slate-800 dark:text-white font-semibold mb-3 flex items-center gap-2 text-sm md:text-base heading-fix">
+													<Code className="w-4 h-4" />
+													Technologies
+												</h5>
+												<div className="flex flex-wrap gap-2">
+													{project.technologies.map(
+														(tech, techIndex) => (
+															<span
+																key={techIndex}
+																className="px-2 md:px-3 py-1 bg-slate-200 dark:bg-slate-700/50 text-slate-700 dark:text-white/80 rounded-full text-xs md:text-sm border border-slate-300 dark:border-white/10 hover:border-slate-400 dark:hover:border-white/20 transition-colors"
+															>
+																{tech}
+															</span>
+														)
+													)}
+												</div>
+											</div>
+
+											{/* Impact */}
+											<div className="flex items-center gap-2 text-slate-500 dark:text-white/60 text-sm">
+												<Globe className="w-4 h-4" />
+												<span className="font-medium">
+													Impact:
+												</span>
+												<span>{project.impact}</span>
+											</div>
+										</div>
+									</div>
+								</motion.div>
+							))
+						) : (
+							<motion.div
+								initial={{ opacity: 0 }}
+								animate={{ opacity: 1 }}
+								className="text-center py-12"
+							>
+								<div className="text-slate-500 dark:text-white/60 text-lg">
+									No projects found in the "{selectedCategory}
+									" category.
+								</div>
+								<button
+									onClick={() => setSelectedCategory("All")}
+									className="mt-4 px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:shadow-lg transition-all duration-300"
+								>
+									View All Projects
+								</button>
+							</motion.div>
+						)}
+					</motion.div>
+				</AnimatePresence>
 
 				{/* CTA Section */}
 				<motion.div
