@@ -43,18 +43,24 @@ export default function Home() {
 	}, []);
 
 	const skills = [
+		"Frontend Development",
+		"Backend Development",
+		"LLM Application Development",
 		"React.js",
 		"Next.js",
 		"Node.js",
 		"Python",
+		"Tailwind CSS",
 		"TypeScript",
 		"AWS",
 		"MongoDB",
 		"PostgreSQL",
 		"FastAPI",
 		"OpenAI",
+		"Vector DB",
+		"LangChain",
+		"RAG",
 		"Redux",
-		"Tailwind CSS",
 	];
 
 	return (
@@ -88,17 +94,17 @@ export default function Home() {
 							Available for new opportunities
 						</span>
 						<h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-slate-800 dark:text-white mb-4 md:mb-6 heading-fix">
-							Full Stack
+							Software
 							<span className="block bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent gradient-text-fix">
 								Engineer
 							</span>
 						</h1>
 						<p className="text-lg md:text-xl text-slate-600 dark:text-white/70 leading-relaxed mb-6 md:mb-8 max-w-4xl mx-auto">
 							Software Engineer with over 2 years of experience
-							building scalable web applications, AI-powered
-							solutions, and cloud-native architectures.
-							Passionate about creating production-ready solutions
-							that make a real impact.
+							building scalable web applications, Generative
+							AI-powered solutions, and cloud-native
+							architectures. Passionate about creating
+							production-ready solutions that make a real impact.
 						</p>
 					</motion.div>
 
