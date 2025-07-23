@@ -66,7 +66,7 @@ export default function Experience() {
 				"Python",
 			],
 			companyInfo:
-				"Technology consulting company specializing in cloud solutions",
+				"Excellence in delivering high-quality software solutions using modern technologies.",
 		},
 		{
 			title: "Full Stack Developer Intern",
@@ -83,7 +83,7 @@ export default function Experience() {
 				"Gained experience in agile development methodologies and team collaboration",
 			],
 			technologies: ["Next.js", "PostgreSQL", "Node.js", "React.js"],
-			companyInfo: "Leading software development company in Pakistan",
+			companyInfo: "Software development company in Pakistan.",
 		},
 	];
 
