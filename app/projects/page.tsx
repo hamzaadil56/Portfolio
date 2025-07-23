@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import {
 	ArrowLeft,
 	ExternalLink,
-	Github,
 	Calendar,
 	Users,
 	Code,
@@ -55,6 +54,7 @@ export default function Projects() {
 				secondary: "border-blue-400/30",
 				accent: "text-blue-500 dark:text-blue-400",
 			},
+			link: "https://www.mahaana.com/",
 		},
 		{
 			title: "Automily",
@@ -118,6 +118,7 @@ export default function Projects() {
 				secondary: "border-purple-400/30",
 				accent: "text-purple-500 dark:text-purple-400",
 			},
+			link: "https://cms.dreamstream.com",
 		},
 		{
 			title: "DreamMaker",
@@ -149,6 +150,7 @@ export default function Projects() {
 				secondary: "border-orange-400/30",
 				accent: "text-orange-500 dark:text-orange-400",
 			},
+			link: "https://platform.dreammakerr.com",
 		},
 		{
 			title: "Governor Sindh Initiative Website",
@@ -180,6 +182,7 @@ export default function Projects() {
 				secondary: "border-cyan-400/30",
 				accent: "text-cyan-500 dark:text-cyan-400",
 			},
+			link: "https://www.governorsindh.com/",
 		},
 		{
 			title: "EQ Mentor",
@@ -211,22 +214,9 @@ export default function Projects() {
 				secondary: "border-yellow-400/30",
 				accent: "text-yellow-500 dark:text-yellow-400",
 			},
+			link: "https://github.com/hamzaadil56/2024_AI_Challenge--LazyDevs-",
 		},
 	];
-
-	const fadeInUp = {
-		initial: { opacity: 0, y: 60 },
-		animate: { opacity: 1, y: 0 },
-		transition: { duration: 0.8, ease: "easeOut" },
-	};
-
-	const staggerContainer = {
-		animate: {
-			transition: {
-				staggerChildren: 0.2,
-			},
-		},
-	};
 
 	return (
 		<div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100 dark:from-slate-950 dark:via-blue-950 dark:to-slate-900 transition-colors duration-300">
@@ -304,16 +294,13 @@ export default function Projects() {
 										</span>
 									</div>
 									<div className="absolute bottom-4 right-4 flex gap-2">
-										<div
+										<a
+											href={project?.link}
+											target="_blank"
 											className={`w-10 h-10 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center ${project.colors.accent} hover:bg-white/20 transition-colors cursor-pointer`}
 										>
 											<ExternalLink className="w-5 h-5" />
-										</div>
-										<div
-											className={`w-10 h-10 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center ${project.colors.accent} hover:bg-white/20 transition-colors cursor-pointer`}
-										>
-											<Github className="w-5 h-5" />
-										</div>
+										</a>
 									</div>
 								</div>
 
