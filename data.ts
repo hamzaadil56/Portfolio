@@ -62,6 +62,36 @@ export const projects = [
 		link: "https://www.mahaana.com/",
 	},
 	{
+		title: "DreamStream",
+		subtitle: "OTT Platform for Entertainment Content",
+		description:
+			"Designed and implemented a comprehensive In-Flight Entertainment (IFE) platform with advanced content management capabilities and high-performance cloud infrastructure.",
+		image: "https://images.pexels.com/photos/4348401/pexels-photo-4348401.jpeg",
+		technologies: [
+			"AWS Amplify",
+			".NET Core",
+			"Lambda",
+			"S3",
+			"OneDrive API",
+			"React.js",
+		],
+		achievements: [
+			"DreamStream was selected by PIA via public tendering, for deployment of portable In-flight Wi-Fi devices with wireless streaming In-flight Entertainment (IFE) system on its A-320 and B-777 aircrafts.",
+			"Content providers were able to successfully deploy their content on dreamstream platform through CMS.",
+		],
+		category: "Cloud/Media",
+		year: "2024",
+		team: "4 developers",
+		status: "Production",
+		impact: "Processing 10TB+ of content",
+		colors: {
+			primary: "from-purple-600 to-pink-600",
+			secondary: "border-purple-400/30",
+			accent: "text-purple-500 dark:text-purple-400",
+		},
+		link: "https://cms.dreamstream.aero",
+	},
+	{
 		title: "HiredMind",
 		subtitle: "An AI Agentic Application To Automate The Hiring Process.",
 		description:
@@ -91,38 +121,6 @@ export const projects = [
 			accent: "text-yellow-500 dark:text-yellow-400",
 		},
 		link: "https://github.com/hamzaadil56/RYH-Hackathon-Vultr-Track",
-	},
-	{
-		title: "DreamStream",
-		subtitle: "OTT Platform for Entertainment Content",
-		description:
-			"Designed and implemented a comprehensive Over-The-Top (OTT) streaming platform with advanced content management capabilities and high-performance cloud infrastructure.",
-		image: "https://images.pexels.com/photos/4348401/pexels-photo-4348401.jpeg",
-		technologies: [
-			"AWS Amplify",
-			".NET Core",
-			"Lambda",
-			"S3",
-			"OneDrive API",
-			"React.js",
-		],
-		achievements: [
-			"Architected Content Management System (CMS) using AWS Amplify",
-			"Developed high-performance Lambda functions for file transfers",
-			"Achieved 60% transfer time reduction between OneDrive and AWS S3",
-			"Improved traveler entertainment and ancillary services",
-		],
-		category: "Cloud/Media",
-		year: "2024",
-		team: "4 developers",
-		status: "Production",
-		impact: "Processing 10TB+ of content",
-		colors: {
-			primary: "from-purple-600 to-pink-600",
-			secondary: "border-purple-400/30",
-			accent: "text-purple-500 dark:text-purple-400",
-		},
-		link: "https://cms.dreamstream.aero",
 	},
 	{
 		title: "Automily",
