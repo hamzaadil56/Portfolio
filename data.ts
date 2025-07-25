@@ -79,7 +79,7 @@ export const projects = [
 			"DreamStream was selected by PIA via public tendering, for deployment of portable In-flight Wi-Fi devices with wireless streaming In-flight Entertainment (IFE) system on its A-320 and B-777 aircrafts.",
 			"Content providers were able to successfully deploy their content on dreamstream platform through CMS.",
 		],
-		category: "Cloud/Media",
+		category: "Media & Entertainment",
 		year: "2024",
 		team: "4 developers",
 		status: "Production",
