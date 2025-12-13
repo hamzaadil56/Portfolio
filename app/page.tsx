@@ -22,6 +22,8 @@ import {
 	optimizedStaggerContainer,
 	optimizedViewport,
 } from "@/components/ui/optimized-motion";
+import FeaturedProject from "@/components/shared/FeaturedProject";
+import { projects } from "@/data";
 
 export default function Home() {
 	const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -100,7 +102,7 @@ export default function Home() {
 							</span>
 						</h1>
 						<p className="text-lg md:text-xl text-slate-600 dark:text-white/70 leading-relaxed mb-6 md:mb-8 max-w-4xl mx-auto">
-							Software Engineer with over 2 years of experience
+							Software Engineer with over 3 years of experience
 							building scalable web applications, Generative
 							AI-powered solutions, and cloud-native
 							architectures. Passionate about creating
@@ -158,6 +160,14 @@ export default function Home() {
 					</motion.div>
 				</div>
 			</motion.section>
+
+			{/* Featured Project Section */}
+			{(() => {
+				const featuredProject = projects.find((p) => p.featured);
+				return featuredProject ? (
+					<FeaturedProject project={featuredProject} />
+				) : null;
+			})()}
 
 			{/* Skills Section */}
 			<motion.section

@@ -12,6 +12,7 @@ import {
 	Database,
 	Globe,
 	Filter,
+	Play,
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -24,6 +25,7 @@ import { projects } from "@/data";
 
 export default function Projects() {
 	const [selectedCategory, setSelectedCategory] = useState<string>("All");
+	const [playingVideo, setPlayingVideo] = useState<string | null>(null);
 
 	// Extract unique categories from projects
 	const categories = useMemo(() => {
@@ -144,40 +146,86 @@ export default function Projects() {
 									className={`group bg-white/50 dark:bg-slate-800/20 backdrop-blur-sm border border-slate-200 dark:${project.colors.secondary} rounded-2xl md:rounded-3xl overflow-hidden hover:border-opacity-60 transition-all duration-300`}
 								>
 									<div className="grid lg:grid-cols-2 gap-0">
-										{/* Project Image */}
+										{/* Project Image/Video */}
 										<div className="relative overflow-hidden lg:order-1 h-64 lg:h-auto">
-											<motion.div
-												className="w-full h-full"
-												whileHover={{ scale: 1.05 }}
-											>
-												<Image
-													src={project.image}
-													alt={project.title}
-													fill
-													className="object-cover group-hover:scale-110 transition-transform duration-700"
-													sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-													priority={index < 2}
-												/>
-											</motion.div>
-											<div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent"></div>
-											<div className="absolute top-4 left-4">
-												<span
-													className={`px-3 py-1 bg-gradient-to-r ${project.colors.primary} text-white rounded-full text-sm font-medium`}
-												>
-													{project.category}
-												</span>
-											</div>
-											<div className="absolute bottom-4 right-4 flex gap-2">
-												{project.link && (
-													<a
-														href={project.link}
-														target="_blank"
-														className={`w-10 h-10 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center ${project.colors.accent} hover:bg-white/20 transition-colors cursor-pointer`}
+											{playingVideo === project.title && (project as any).video ? (
+												<div className="relative w-full h-full bg-black">
+													<iframe
+														src={(project as any).video}
+														title={project.title}
+														className="w-full h-full"
+														allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+														allowFullScreen
+														loading="lazy"
+													/>
+													<button
+														onClick={() => setPlayingVideo(null)}
+														className="absolute top-4 right-4 bg-black/50 hover:bg-black/70 backdrop-blur-sm text-white p-2 rounded-full transition-all duration-300 z-10"
+														aria-label="Close video"
 													>
-														<ExternalLink className="w-5 h-5" />
-													</a>
-												)}
-											</div>
+														<svg
+															className="w-5 h-5"
+															fill="none"
+															stroke="currentColor"
+															viewBox="0 0 24 24"
+														>
+															<path
+																strokeLinecap="round"
+																strokeLinejoin="round"
+																strokeWidth={2}
+																d="M6 18L18 6M6 6l12 12"
+															/>
+														</svg>
+													</button>
+												</div>
+											) : (
+												<>
+													<motion.div
+														className="w-full h-full"
+														whileHover={{ scale: 1.05 }}
+													>
+														<Image
+															src={project.image}
+															alt={project.title}
+															fill
+															className="object-cover group-hover:scale-110 transition-transform duration-700"
+															sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+															priority={index < 2}
+														/>
+													</motion.div>
+													{(project as any).video && (
+														<button
+															onClick={() => setPlayingVideo(project.title)}
+															className="absolute inset-0 flex items-center justify-center group/play bg-black/20 hover:bg-black/30 transition-colors"
+															aria-label="Play video"
+														>
+															<div className="w-16 h-16 bg-white/90 dark:bg-white/80 rounded-full flex items-center justify-center shadow-2xl group-hover/play:scale-110 transition-transform duration-300">
+																<Play className="w-8 h-8 text-slate-800 ml-1" />
+															</div>
+														</button>
+													)}
+													<div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent pointer-events-none"></div>
+													<div className="absolute top-4 left-4">
+														<span
+															className={`px-3 py-1 bg-gradient-to-r ${project.colors.primary} text-white rounded-full text-sm font-medium`}
+														>
+															{project.category}
+														</span>
+													</div>
+													<div className="absolute bottom-4 right-4 flex gap-2">
+														{project.link && (
+															<a
+																href={project.link}
+																target="_blank"
+																rel="noopener noreferrer"
+																className={`w-10 h-10 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center ${project.colors.accent} hover:bg-white/20 transition-colors cursor-pointer`}
+															>
+																<ExternalLink className="w-5 h-5" />
+															</a>
+														)}
+													</div>
+												</>
+											)}
 										</div>
 
 										{/* Project Content */}

@@ -30,6 +30,40 @@ import DreamMakerImage from "@/assets/images/dreammker.png";
 
 export const projects = [
 	{
+		title: "YourTeacher",
+		subtitle: "Autonomous Agentic AI System for Personalized Learning",
+		description:
+			"An autonomous agentic AI system for personalized learning. Students can learn anything using their style of learning, and the personalized agent will teach the learner according to their cognitive ability. This project showcases advanced AI Engineering skills and the ability to build sophisticated AI applications.",
+		image: "https://images.pexels.com/photos/5905709/pexels-photo-5905709.jpeg",
+		video: "https://www.youtube.com/embed/4urXIeZKRI0?rel=0&modestbranding=1",
+		technologies: [
+			"OpenAI Agents SDK",
+			"Python",
+			"Streamlit",
+			"RAG",
+			"LangChain",
+			"Vector DB",
+		],
+		achievements: [
+			"Developed an autonomous agentic AI system that adapts to individual learning styles",
+			"Implemented personalized learning algorithms that adjust to cognitive abilities",
+			"Created an intuitive interface for seamless learning experiences",
+			"Showcased advanced AI Engineering capabilities in building production-ready AI applications",
+		],
+		category: "AI/EdTech",
+		year: "2025",
+		team: "Solo Project",
+		status: "Live",
+		impact: "Revolutionizing personalized education",
+		colors: {
+			primary: "from-indigo-600 to-purple-600",
+			secondary: "border-indigo-400/30",
+			accent: "text-indigo-500 dark:text-indigo-400",
+		},
+		link: "https://yourteacher.streamlit.app/",
+		featured: true,
+	},
+	{
 		title: "Mahaana",
 		subtitle: "Pakistan's First Digital Asset Management Company (YC W22)",
 		description:
