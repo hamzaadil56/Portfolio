@@ -1,195 +1,179 @@
-# 🚀 Muhammad Hamza - Full Stack Engineer
+# hamzaadil.dev
 
-<div align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=500&size=28&pause=1000&color=3B82F6&center=true&vCenter=true&width=600&height=100&lines=Building+the+Future+with+Code;Full+Stack+Engineer;AI+Enthusiast;Problem+Solver" alt="Typing SVG" />
-</div>
+Personal portfolio for [Muhammad Hamza](https://hamzaadil.dev) — Software Engineer.
+Built as a single-page scrollytelling experience with a separate blog at `/blog`.
 
-<div align="center">
-  <a href="mailto:hamzaadil56@gmail.com">
-    <img src="https://img.shields.io/badge/Email-hamzaadil56%40gmail.com-blue?style=for-the-badge&logo=gmail" alt="Email" />
-  </a>
-  <a href="https://hamzaadil.dev">
-    <img src="https://img.shields.io/badge/Portfolio-hamzaadil.dev-purple?style=for-the-badge&logo=vercel" alt="Portfolio" />
-  </a>
-  <a href="https://linkedin.com/in/muhammad-hamza-adil">
-    <img src="https://img.shields.io/badge/LinkedIn-Muhammad%20Hamza-blue?style=for-the-badge&logo=linkedin" alt="LinkedIn" />
-  </a>
-  <a href="https://github.com/hamzaadil56">
-    <img src="https://img.shields.io/badge/GitHub-hamzaadil56-black?style=for-the-badge&logo=github" alt="GitHub" />
-  </a>
-</div>
+Stack: **Next.js 13 App Router · TypeScript · Tailwind CSS · Framer Motion · GSAP · shadcn-style primitives**.
+Design system: **Cinematic Dark + Editorial Display** (see [`app/globals.css`](app/globals.css) for tokens).
 
 ---
 
-## 👨‍💻 About Me
+## Getting started
 
-I'm a passionate **Full Stack Engineer** with over **2+ years** of experience crafting scalable web applications and innovative solutions. I specialize in modern web technologies and have a keen interest in **Generative AI** and **cloud-native development**.
+```bash
+npm install
+cp .env.example .env.local         # set BLOG_ADMIN_TOKEN
+npm run dev                        # http://localhost:3000
+```
 
-### 🎯 What I Do
+### Production build
 
--   **Frontend Development**: React.js, Next.js, Redux, Tailwind CSS
--   **Backend Development**: Node.js, .NET Core, FastAPI, PostgreSQL
--   **AI/ML**: OpenAI, Langchain, Vector Databases, LLMs
--   **Cloud**: AWS Amplify, Lambda Functions, Microservices
--   **DevOps**: CI/CD, Docker, Cloud Deployment
-
----
-
-## 🏢 Work Experience
-
-### **Full Stack Engineer** @ [Mahaana](https://mahaana.com) _(Jan 2025 - Present)_
-
-> Pakistan's first digital Asset Management Company (YC W22)
-
--   🚀 **Led frontend development** of customer portal using React.js with focus on performance and scalability
--   🔧 **Resolved critical issues** in Blazor Server-based corporate portal to improve stability
--   ⚡ **Refactored .NET Core microservice APIs** to fix bugs and enhance maintainability
--   📈 **Implemented code splitting and image optimization** to enhance performance and load times
-
-### **Full Stack Engineer** @ [mParsec](https://mparsec.com) _(Sept 2023 - Jan 2025)_
-
--   🌐 **Built frontend web applications** using React.js and modern web technologies
--   ☁️ **Developed cloud-native solutions** with AWS Amplify and .NET Core Lambda functions
--   🤝 **Collaborated with designers and stakeholders** to deliver robust, user-friendly features
--   🤖 **Initiated and constructed Automily** - a platform leveraging OpenAI LLMs and FastAPI to automate software quality assurance workflows
-
-### **Full Stack Developer Intern** @ [Panacloud](https://panacloud.com) _(Apr 2023 - June 2023)_
-
--   🎯 **Assisted in backend development** and database management
--   📊 **Contributed to high-impact project** for the Governor Sindh Initiative
+```bash
+npm run build
+npm start
+```
 
 ---
 
-## 🚀 Featured Projects
+## Project structure
 
-### **🤖 Automily - Generative AI Software Quality Automation**
+```text
+app/
+├── layout.tsx                # fonts (Geist, Inter, JetBrains Mono), metadata, Toaster
+├── globals.css               # design tokens + Tailwind layers
+├── page.tsx                  # composes the home-page sections
+├── not-found.tsx
+├── blog/
+│   ├── page.tsx              # list view (ISR, revalidate=60)
+│   ├── [id]/page.tsx         # detail view with "Read on {platform}" CTA
+│   └── new/page.tsx          # admin: create new post (env-gated)
+└── api/blogs/
+    ├── _store.ts             # file-based JSON persistence (data/blogs.json)
+    ├── route.ts              # GET list / POST create
+    └── [id]/route.ts         # GET / PUT / DELETE single post
 
-> _AI-powered software quality automation tool_
+components/
+├── chrome/                   # Nav, Footer, ScrollProgress
+├── sections/                 # Hero, About, Skills, Experience, Projects, Hackathons, YoutubeDemos, Testimonials, Contact, SectionShell
+├── primitives/               # Reveal, MagneticButton, AnimatedText, TechBadge, StatCounter, YoutubeEmbed
+├── blog/                     # BlogCard, BlogForm
+└── ui/                       # shadcn primitives kept: button, dialog, select, sheet, sonner, input, label, textarea
 
--   **Tech Stack**: FastAPI, .NET Framework, OpenAI LLMs, Python
--   **Key Features**: Automated user story testing, scalable microservices architecture
--   **Impact**: Drove efficiency in software releases using Generative AI
+data/
+├── profile.ts                # name, role, contact, socials
+├── experience.ts             # work history + education
+├── projects.ts               # featured & archive projects
+├── skills.ts                 # categorised stack
+├── hackathons.ts             # event entries
+├── youtube.ts                # video demos (YouTube IDs)
+├── testimonials.ts           # blank by default — auto-hides until populated
+├── nav.ts                    # in-page section anchors
+└── blogs.json                # runtime-mutable, gitignored
 
-### **🎬 DreamStream - OTT Platform**
-
-> _Entertainment content platform for travelers_
-
--   **Tech Stack**: AWS Amplify, .NET Core, AWS S3, OneDrive
--   **Key Features**: Content Management System (CMS), high-performance Lambda functions
--   **Impact**: 60% reduction in file transfer time between OneDrive and AWS S3
-
-### **🎓 DreamMaker - Educational Platform**
-
-> _Comprehensive learning management system_
-
--   **Tech Stack**: MongoDB, PayPal Integration, Advanced Database Aggregation
--   **Key Features**: Paid course purchasing, advanced analytics
--   **Impact**: Enhanced user experience with seamless payment processing
-
-### **🏛️ Governor Sindh Initiative Website**
-
-> _Government platform for student registration_
-
--   **Tech Stack**: Next.js 13, PostgreSQL, Backend System Architecture
--   **Key Features**: Student registration system, robust backend infrastructure
--   **Impact**: Successfully registered 500,000+ students on the platform
-
----
-
-## 🛠️ Technical Skills
-
-### **Frontend Development**
-
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)
-![Redux](https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
-![Material UI](https://img.shields.io/badge/Material_UI-0081CB?style=for-the-badge&logo=material-ui&logoColor=white)
-
-### **Backend Development**
-
-![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
-![Express.js](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge&logo=express&logoColor=white)
-![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
-![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
-
-### **AI & Cloud**
-
-![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white)
-![AWS](https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![Langchain](https://img.shields.io/badge/Langchain-00FF00?style=for-the-badge&logo=langchain&logoColor=black)
+lib/
+├── auth-blog.ts              # Bearer-token verifier for blog mutations
+├── gsap.ts                   # ScrollTrigger registration (single import site)
+└── utils.ts                  # cn() helper
+```
 
 ---
 
-## 🏆 Achievements & Recognition
+## How to add content
 
-### **🏅 Hackathon Success**
+### A new project
 
--   **"EQ Mentor"** - Generative AI-powered personalized mentor
-    -   Secured **top 10 spot** at BWAI hackathon organized by GDGKolachi
-    -   Earned the **Mentor title** for innovative AI solution
+Edit [`data/projects.ts`](data/projects.ts). Set `featured: true` to surface it on the home page (otherwise it stays in the archive). Image can be a remote URL (Pexels/etc.) or a local `import` from `assets/images/`.
 
-### **🌟 International Recognition**
+### A new hackathon
 
--   **ResearchMind: AI-Powered Project Mentor** for Research Mastery
-    -   Received **international appreciation** from lablab.ai Grants Manager
-    -   Recognized by **Technical Mentor** for innovative project idea
+Edit [`data/hackathons.ts`](data/hackathons.ts). Look for the `// ADD_NEXT_HACKATHON_HERE` comment.
 
-### **💼 Freelance Excellence**
+### A new YouTube demo
 
--   **99.9% client satisfaction** rate across multiple freelance projects
--   Successfully delivered **Minimal Viable Products** in international AI hackathons
+Edit [`data/youtube.ts`](data/youtube.ts). Only the YouTube ID is required — the thumbnail at `https://i.ytimg.com/vi/{id}/maxresdefault.jpg` and the embed iframe are wired up automatically.
 
----
+### A new testimonial
 
-## 📚 Education
+Add to [`data/testimonials.ts`](data/testimonials.ts). The Testimonials section unmounts entirely while the array is empty.
 
-### **Bachelor of Engineering in Chemical Engineering**
+### A new blog post
 
-_NED University of Engineering and Technology_ _(Sep 2019 - Aug 2023)_
+1. Set `BLOG_ADMIN_TOKEN` in `.env.local`.
+2. Visit `/blog/new`.
+3. Enter the token (stored in `sessionStorage` for the tab — UX shim only; the server matches the token on every request).
+4. Fill the form → publish. The post is appended to `data/blogs.json` and shows up at `/blog` immediately.
 
--   **CGPA**: 3.20
--   **Key Courses**: Computer Programming & Drafting (CPD), Calculus, Advanced Calculus & Linear Algebra
+The blog section is intentionally a **link aggregator** to Dev.to / Medium / Hashnode — full articles live on those platforms.
 
 ---
 
-## 📊 GitHub Stats
+## Blog API contract
 
-<div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=hamzaadil56&show_icons=true&theme=radical&hide_border=true" alt="GitHub Stats" />
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=hamzaadil56&theme=radical&hide_border=true" alt="GitHub Streak" />
-</div>
+All endpoints under `/api/blogs`. Mutations require `Authorization: Bearer <BLOG_ADMIN_TOKEN>`.
 
-<div align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=hamzaadil56&layout=compact&theme=radical&hide_border=true" alt="Top Languages" />
-</div>
+| Method | Path | Auth | Body |
+| --- | --- | --- | --- |
+| `GET` | `/api/blogs` | — | — |
+| `POST` | `/api/blogs` | Bearer | `{ title, url, platform, description, tags?, date?, readTime?, gradient?, platformColor? }` |
+| `GET` | `/api/blogs/[id]` | — | — |
+| `PUT` | `/api/blogs/[id]` | Bearer | partial Blog |
+| `DELETE` | `/api/blogs/[id]` | Bearer | — |
 
----
+```bash
+# List
+curl http://localhost:3000/api/blogs
 
-## 🤝 Let's Connect!
-
-<div align="center">
-  <a href="mailto:hamzaadil56@gmail.com">
-    <img src="https://img.shields.io/badge/Email-hamzaadil56%40gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
-  </a>
-  <a href="https://hamzaadil.dev">
-    <img src="https://img.shields.io/badge/Portfolio-hamzaadil.dev-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Portfolio" />
-  </a>
-  <a href="https://linkedin.com/in/muhammad-hamza-adil">
-    <img src="https://img.shields.io/badge/LinkedIn-Muhammad%20Hamza-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
-  </a>
-  <a href="https://github.com/hamzaadil56">
-    <img src="https://img.shields.io/badge/GitHub-hamzaadil56-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
-  </a>
-</div>
+# Create
+curl -X POST http://localhost:3000/api/blogs \
+  -H 'Content-Type: application/json' \
+  -H "Authorization: Bearer $BLOG_ADMIN_TOKEN" \
+  -d '{"title":"...","url":"https://...","platform":"Dev.to","description":"..."}'
+```
 
 ---
 
-<div align="center">
-  <img src="https://komarev.com/ghpvc/?username=hamzaadil56&style=flat-square&color=blue" alt="Profile Views" />
-  
-  *"Code is like humor. When you have to explain it, it's bad." - Cory House*
-</div>
+## Environment variables
+
+| Name                | Required | Notes                                                             |
+|---------------------|----------|-------------------------------------------------------------------|
+| `BLOG_ADMIN_TOKEN`  | yes      | Long random secret. Without it, mutations to `/api/blogs` return 500/401. |
+
+Persistence file: `data/blogs.json` is gitignored. On Vercel / serverless deploys you'll want to swap [`app/api/blogs/_store.ts`](app/api/blogs/_store.ts) for a real DB (Supabase / Turso / Postgres) — the public function signatures (`getAllBlogs`, `getBlogById`, `createBlog`, `updateBlog`, `deleteBlog`) are the only contract the routes depend on.
+
+---
+
+## Design system at a glance
+
+Documented inline in [`app/globals.css`](app/globals.css) (`:root` / `.dark` block) and mirrored as Tailwind tokens in [`tailwind.config.ts`](tailwind.config.ts).
+
+- **Surfaces:** `bg-canvas`, `bg-canvas-elevated`, `bg-surface`, `bg-surface-2`
+- **Text:** `text-fg`, `text-fg-muted`, `text-fg-subtle`
+- **Accent:** `text-accent` / `bg-gradient-accent` / `text-gradient` utility
+- **Typography:** `font-display` (Geist) · `font-sans` (Inter) · `font-mono` (JetBrains Mono)
+- **Type scale:** `text-display-2xl` → `text-h2` → `text-body` → `text-micro`
+- **Motion:** `duration-micro` (150ms) · `duration-std` (320ms) · `duration-cinematic` (720ms) · easing `out-expo` / `in-out-quart`
+- **Reduced motion:** all GSAP timelines branch on `prefers-reduced-motion`; Framer reveals fall back to instant via `useReducedMotion()`.
+
+---
+
+## Animation choreography
+
+| Section       | Mechanism                                              |
+|---------------|--------------------------------------------------------|
+| Hero          | GSAP char-split reveal of the name + Framer fades      |
+| Hero          | Cursor-following accent glow (Framer `useMotionValue`) |
+| About         | Framer `Reveal` per stanza                             |
+| Skills        | Framer `RevealGroup` stagger of bento tiles            |
+| Experience    | GSAP scrub-bound progress line draw                    |
+| Projects      | GSAP `matchMedia` horizontal pinned scroll on `≥1024px`|
+| Hackathons    | Framer stagger card grid                               |
+| Demos         | Framer stagger + click-to-load YouTube lightbox        |
+| Contact       | Framer `Reveal` columns                                |
+| Globally      | Framer-driven scroll progress bar at the top           |
+
+---
+
+## Roadmap / known TODOs
+
+- `// EMAIL_SERVICE_HERE` — contact form opens a `mailto:` today; swap for Resend / Formspree later.
+- `// ADD_TESTIMONIALS_HERE` — testimonials section auto-shows when populated.
+- `// ANALYTICS_HERE` — drop in Plausible / Vercel Analytics in `app/layout.tsx`.
+- OG image — currently referenced as `/og-image.png` in metadata; generate a 1200×630 image (or wire up `@vercel/og` later).
+- Blog persistence — replace `_store.ts` with a real DB before deploying to a serverless platform that has an ephemeral filesystem.
+
+---
+
+## Author
+
+Muhammad Hamza · Karachi · [hamzaadil56@gmail.com](mailto:hamzaadil56@gmail.com)
+[GitHub](https://github.com/hamzaadil56) · [LinkedIn](https://www.linkedin.com/in/muhammad-hamza-adil/) · [Twitter](https://twitter.com/hamza_chemE_dev)
