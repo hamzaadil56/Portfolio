@@ -1,7 +1,7 @@
 export const profile = {
 	name: "Hamza",
 	monogram: "/profile.png",
-	role: "Full-Stack & AI Engineer",
+	role: "Full-Stack Software Engineer",
 	roleLong: "Full-Stack Engineer · Generative AI · TypeScript",
 	location: "Karachi, Pakistan",
 	timezone: "Asia/Karachi",
