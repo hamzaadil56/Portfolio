@@ -64,18 +64,34 @@ export function YoutubeEmbed({
 			</DialogTrigger>
 
 			<DialogContent
-				className="max-w-5xl !p-0 !gap-0 bg-canvas-elevated border border-border overflow-hidden"
+				className="bg-canvas-elevated border border-border overflow-hidden rounded-lg"
+				style={{
+					display: "block",
+					width: "90vw",
+					maxWidth: "1024px",
+					padding: 0,
+					gap: 0,
+				}}
 				onOpenAutoFocus={(e) => e.preventDefault()}
 			>
 				<DialogTitle className="sr-only">{title}</DialogTitle>
-				<div className="relative aspect-video w-full bg-canvas">
+				<div
+					className="relative w-full bg-canvas"
+					style={{ aspectRatio: "16 / 9" }}
+				>
 					{open && (
 						<iframe
 							src={`https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0&modestbranding=1`}
 							title={title}
 							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 							allowFullScreen
-							className="absolute inset-0 size-full"
+							style={{
+								position: "absolute",
+								inset: 0,
+								width: "100%",
+								height: "100%",
+								border: 0,
+							}}
 						/>
 					)}
 				</div>
