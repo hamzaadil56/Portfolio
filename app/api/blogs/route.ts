@@ -1,41 +1,43 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getAllBlogs, createBlog } from "@/lib/blog-data";
+import { getAllBlogs, createBlog } from "./_store";
+import { verifyBlogAdmin } from "@/lib/auth-blog";
 
-// GET /api/blogs - Get all blogs
+export const dynamic = "force-dynamic";
+
 export async function GET() {
 	try {
-		const blogs = getAllBlogs();
+		const blogs = await getAllBlogs();
 		return NextResponse.json({ success: true, data: blogs });
-	} catch (error) {
-		console.error("Error fetching blogs:", error);
+	} catch (err) {
+		console.error("GET /api/blogs failed:", err);
 		return NextResponse.json(
 			{ success: false, error: "Failed to fetch blogs" },
-			{ status: 500 }
+			{ status: 500 },
 		);
 	}
 }
 
-// POST /api/blogs - Create a new blog
 export async function POST(request: NextRequest) {
+	const unauthorized = verifyBlogAdmin(request);
+	if (unauthorized) return unauthorized;
+
 	try {
 		const body = await request.json();
-
-		// Validate required fields
-		const requiredFields = ["title", "url", "platform", "description"];
-		for (const field of requiredFields) {
-			if (!body[field] || body[field].trim() === "") {
+		const required = ["title", "url", "platform", "description"] as const;
+		for (const key of required) {
+			const value = body?.[key];
+			if (typeof value !== "string" || !value.trim()) {
 				return NextResponse.json(
 					{
 						success: false,
-						error: `Missing or empty required field: ${field}`,
+						error: `Missing or empty required field: ${key}`,
 					},
-					{ status: 400 }
+					{ status: 400 },
 				);
 			}
 		}
 
-		// Set default values for optional fields
-		const blogData = {
+		const blog = await createBlog({
 			title: body.title.trim(),
 			url: body.url.trim(),
 			platform: body.platform.trim(),
@@ -43,30 +45,26 @@ export async function POST(request: NextRequest) {
 			readTime: body.readTime?.trim() || "5 min read",
 			description: body.description.trim(),
 			tags: Array.isArray(body.tags)
-				? body.tags.filter((tag: string) => tag && tag.trim())
+				? body.tags
+						.filter(
+							(t: unknown) =>
+								typeof t === "string" && t.trim().length > 0,
+						)
+						.map((t: string) => t.trim())
 				: [],
-			gradient: body.gradient || "from-blue-600 to-purple-600",
-			platformColor: body.platformColor || "text-blue-400",
-		};
-
-		console.log("Creating blog with data:", blogData);
-
-		const newBlog = createBlog(blogData);
-
-		console.log("Blog created successfully:", newBlog);
+			gradient: body.gradient || "from-accent to-accent-2",
+			platformColor: body.platformColor || "text-accent",
+		});
 
 		return NextResponse.json(
-			{ success: true, data: newBlog },
-			{ status: 201 }
+			{ success: true, data: blog },
+			{ status: 201 },
 		);
-	} catch (error) {
-		console.error("Error creating blog:", error);
+	} catch (err) {
+		console.error("POST /api/blogs failed:", err);
 		return NextResponse.json(
-			{
-				success: false,
-				error: "Failed to create blog. Please try again.",
-			},
-			{ status: 500 }
+			{ success: false, error: "Failed to create blog." },
+			{ status: 500 },
 		);
 	}
 }

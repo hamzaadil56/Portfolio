@@ -4,17 +4,12 @@ const nextConfig = {
 		ignoreDuringBuilds: true,
 	},
 	images: {
-		domains: ["images.pexels.com"],
 		remotePatterns: [
-			{
-				protocol: "https",
-				hostname: "images.pexels.com",
-				port: "",
-				pathname: "/**",
-			},
+			{ protocol: "https", hostname: "images.pexels.com", pathname: "/**" },
+			{ protocol: "https", hostname: "i.ytimg.com", pathname: "/**" },
+			{ protocol: "https", hostname: "img.youtube.com", pathname: "/**" },
 		],
 	},
-	trailingSlash: true,
 };
 
 module.exports = nextConfig;
