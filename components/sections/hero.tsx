@@ -114,15 +114,12 @@ export function Hero() {
 					}}
 					className="mt-6 text-body-lg md:text-h3 text-fg-muted max-w-2xl leading-snug"
 				>
-					I ship production single-page apps and full-stack systems
-					used by{" "}
-					<span className="text-fg font-medium tnum">500,000+</span>{" "}
-					users — at{" "}
-					<span className="text-fg font-medium">
-						Mahaana (YC W22)
-					</span>
-					, <span className="text-fg font-medium">mParsec</span>, and
-					a handful of teams that needed something to work yesterday.
+					I architect{" "}
+					<span className="text-fg font-medium">full-stack systems</span>{" "}
+					powered by{" "}
+					<span className="text-fg font-medium">Generative AI</span>{" "}
+					— from React frontends to backend APIs to LLM pipelines —
+					and ship the whole thing end to end.
 				</motion.p>
 
 				<motion.div

@@ -1,8 +1,8 @@
 export const profile = {
 	name: "Hamza",
 	monogram: "/profile.png",
-	role: "Software Engineer",
-	roleLong: "Software Engineer · Full-Stack · Frontend",
+	role: "Full-Stack & AI Engineer",
+	roleLong: "Full-Stack Engineer · Generative AI · TypeScript",
 	location: "Karachi, Pakistan",
 	timezone: "Asia/Karachi",
 	availability: "Open to freelance, startup & senior roles",
