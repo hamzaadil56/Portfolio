@@ -73,7 +73,7 @@ export function Projects() {
 							key={p.id}
 							className="group flex flex-col lg:w-[640px] xl:w-[720px] lg:shrink-0 rounded-xl border border-border bg-surface hover:border-border-bright transition-colors duration-std overflow-hidden ring-soft"
 						>
-							<div className="relative aspect-[16/10] overflow-hidden bg-canvas-elevated">
+							<div className="relative aspect-[2/1] overflow-hidden bg-canvas-elevated">
 								<Image
 									src={p.image as any}
 									alt={`${p.title} — ${p.subtitle}`}
@@ -95,13 +95,13 @@ export function Projects() {
 								</div>
 							</div>
 
-							<div className="flex-1 p-6 lg:p-8 flex flex-col gap-5">
+							<div className="flex-1 p-5 lg:p-6 flex flex-col gap-4">
 								<div>
 									<p className="font-mono text-micro uppercase tracking-[0.24em] text-fg-subtle">
 										{String(i + 1).padStart(2, "0")} ·{" "}
 										{p.category}
 									</p>
-									<h3 className="mt-3 font-display font-semibold text-h2 text-fg leading-tight">
+									<h3 className="mt-2 font-display font-semibold text-h2 text-fg leading-tight">
 										{p.title}
 									</h3>
 									<p className="mt-1 text-body text-fg-muted leading-snug">
