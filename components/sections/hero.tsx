@@ -8,7 +8,7 @@ import {
 	useTransform,
 	useReducedMotion,
 } from "framer-motion";
-import { ArrowDown, ArrowUpRight, Download } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { profile } from "@/data/profile";
 import { MagneticButton } from "@/components/primitives/magnetic-button";
 import { AnimatedText } from "@/components/primitives/animated-text";
@@ -46,7 +46,7 @@ export function Hero() {
 		<section
 			ref={ref}
 			id="hero"
-			className="relative isolate h-dvh overflow-hidden"
+			className="relative isolate h-screen min-h-screen overflow-hidden"
 		>
 			<div className="absolute inset-0 -z-10 bg-grid mask-radial opacity-50" />
 
@@ -114,12 +114,11 @@ export function Hero() {
 					}}
 					className="mt-6 text-body-lg md:text-h3 text-fg-muted max-w-2xl leading-snug"
 				>
-					I architect{" "}
-					<span className="text-fg font-medium">full-stack systems</span>{" "}
-					powered by{" "}
-					<span className="text-fg font-medium">Generative AI</span>{" "}
-					— from React frontends to backend APIs to LLM pipelines —
-					and ship the whole thing end to end.
+					I architect and deploy{" "}
+					<span className="text-fg font-medium">
+						AI-powered SaaS applications
+					</span>{" "}
+					for startups.
 				</motion.p>
 
 				<motion.div
@@ -137,16 +136,8 @@ export function Hero() {
 						href="#contact"
 						variant="primary"
 					>
-						Hire me
+						Book a call
 						<ArrowUpRight className="size-4" />
-					</MagneticButton>
-					<MagneticButton
-						className="basis-[calc(50%-6px)] justify-center md:basis-auto"
-						href="#work"
-						variant="ghost"
-					>
-						View my work
-						<ArrowDown className="size-4" />
 					</MagneticButton>
 				</motion.div>
 

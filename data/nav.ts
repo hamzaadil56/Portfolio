@@ -2,7 +2,7 @@ export const sectionNav = [
 	{ id: "about", label: "About" },
 	{ id: "skills", label: "Skills" },
 	{ id: "experience", label: "Experience" },
-	{ id: "work", label: "Work" },
+	{ id: "case-studies", label: "Case Studies" },
 	{ id: "hackathons", label: "Hackathons" },
 	{ id: "demos", label: "Demos" },
 	{ id: "contact", label: "Contact" },

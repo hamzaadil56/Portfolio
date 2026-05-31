@@ -5,7 +5,7 @@ import { Hero } from "@/components/sections/hero";
 import { About } from "@/components/sections/about";
 import { Skills } from "@/components/sections/skills";
 import { ExperienceSection } from "@/components/sections/experience";
-import { Projects } from "@/components/sections/projects";
+import { CaseStudies } from "@/components/sections/case-studies";
 import { Hackathons } from "@/components/sections/hackathons";
 import { YoutubeDemos } from "@/components/sections/youtube-demos";
 import { Testimonials } from "@/components/sections/testimonials";
@@ -21,7 +21,7 @@ export default function Home() {
 				<About />
 				<Skills />
 				<ExperienceSection />
-				<Projects />
+				<CaseStudies />
 				<Hackathons />
 				<YoutubeDemos />
 				<Testimonials />

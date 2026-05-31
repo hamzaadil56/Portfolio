@@ -108,8 +108,8 @@ export function About() {
 							Now
 						</p>
 						<p className="mt-3 font-display text-h3 text-fg leading-tight">
-							Building corporate SPAs at{" "}
-							<span className="text-accent">Mahaana</span>.
+							Providing services as a freelance{" "}
+							<span className="text-accent">software engineer</span>.
 						</p>
 						<dl className="mt-6 space-y-3 text-caption">
 							<div className="flex justify-between gap-4">
