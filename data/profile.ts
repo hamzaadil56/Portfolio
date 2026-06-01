@@ -33,7 +33,7 @@ export const profile = {
 		},
 		{
 			label: "YouTube",
-			href: "https://www.youtube.com/@hamzaadil56",
+			href: "https://www.youtube.com/@muhammad_hamza_chemE_dev",
 			handle: "@hamzaadil56",
 		},
 	],

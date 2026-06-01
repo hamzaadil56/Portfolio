@@ -707,103 +707,6 @@ export const caseStudies: CaseStudy[] = [
 		],
 	},
 	{
-		slug: "yourteacher",
-		eyebrow: "YourTeacher · Solo project · 2025",
-		title: "YourTeacher — an Autonomous Agentic AI Tutor",
-		subtitle:
-			"A personalised learning system that adapts to each student's cognitive ability — built with the OpenAI Agents SDK, RAG, and a vector store over reference material.",
-		cardDescription:
-			"An autonomous agentic AI tutor that adapts explanation depth, examples, and pacing to each learner — orchestrated agent loop, RAG-grounded responses, production chat surface.",
-		metaChips: [
-			"OpenAI Agents SDK",
-			"Python",
-			"Streamlit",
-			"RAG",
-			"LangChain",
-			"Vector DB",
-		],
-		stats: [
-			{ num: "1", label: "Engineer. Built end-to-end." },
-			{ num: "RAG", label: "Grounded on reference material" },
-			{ num: "Multi", label: "Step agentic reasoning" },
-			{ num: "Live", label: "Production chat surface" },
-		],
-		sections: [
-			{
-				label: "Context",
-				heading: "Personalised learning that actually adapts",
-				blocks: [
-					{
-						kind: "p",
-						html: "Most AI tutors are thin wrappers over a single LLM call — they answer questions but don't <strong>teach</strong>. YourTeacher was designed to do the opposite: act like a real tutor that models the student, adapts its explanations, and stays grounded in source material.",
-					},
-					{
-						kind: "p",
-						html: "The system orchestrates retrieval, tool use, and multi-step reasoning to keep responses anchored in a vector store of reference content rather than hallucinating — and adjusts depth, examples, and pacing based on the learner's signals.",
-					},
-				],
-			},
-			{
-				label: "My Approach",
-				heading: "An agent loop with retrieval and adaptive control",
-				blocks: [
-					{
-						kind: "flow",
-						steps: [
-							{
-								title: "Intent + cognitive-state estimation",
-								desc: "Every turn, the agent classifies the student's intent (ask, clarify, drill, test) and updates a lightweight cognitive-state model — how confident they seem, what they've already covered.",
-							},
-							{
-								title: "Retrieval over the reference vector store",
-								desc: "The agent fetches relevant passages from a vector DB built on the curriculum material, so explanations stay grounded in the source.",
-							},
-							{
-								title: "Plan, then respond",
-								desc: "The OpenAI Agents SDK plans a response — choosing whether to explain, demonstrate, or quiz — and produces output tuned to the estimated cognitive state.",
-							},
-						],
-					},
-					{
-						kind: "techGrid",
-						items: [
-							{ category: "Agent", name: "OpenAI Agents SDK" },
-							{ category: "Language", name: "Python" },
-							{ category: "Frontend", name: "Streamlit" },
-							{ category: "Retrieval", name: "RAG + Vector DB" },
-							{ category: "Orchestration", name: "LangChain" },
-							{ category: "Hosting", name: "Cloud-deployed" },
-						],
-					},
-				],
-			},
-			{
-				label: "Results",
-				heading: "What shipped",
-				blocks: [
-					{
-						kind: "results",
-						items: [
-							{
-								headline: "Production chat surface live",
-								detail: "Students can use it today to learn any topic in their own style.",
-							},
-							{
-								headline:
-									"Grounded, hallucination-resistant answers",
-								detail: "RAG over the reference store keeps the tutor anchored in real material.",
-							},
-							{
-								headline: "Adaptive teaching loop",
-								detail: "Explanation depth and pacing adjust as the learner progresses.",
-							},
-						],
-					},
-				],
-			},
-		],
-	},
-	{
 		slug: "automily",
 		eyebrow: "mParsec · 2024",
 		title: "Automily — GenAI QA Automation Platform",
@@ -882,12 +785,12 @@ export const caseStudies: CaseStudy[] = [
 	},
 	{
 		slug: "governor-sindh",
-		eyebrow: "Governor Sindh IT Initiative · 2022",
+		eyebrow: "Governor Sindh IT Initiative · 2023",
 		title: "Governor Sindh IT Initiative — Public Portal at Scale",
 		subtitle:
-			"Public-facing portal and admissions pipeline for a province-wide programme training tens of thousands of students — handling 100K+ concurrent users at peak.",
+			"Public-facing portal and admissions pipeline for a province-wide programme training tens of thousands of students — handling 25K+ concurrent users at peak.",
 		cardDescription:
-			"Province-wide admissions pipeline that survived a viral moment — 100K+ concurrent users at peak, Next.js + Node BFF + Postgres with edge caching.",
+			"Province-wide admissions pipeline that survived a viral moment — 25K+ concurrent users at peak, Next.js + Node BFF + Postgres with edge caching.",
 		metaChips: [
 			"Next.js",
 			"Node.js",
@@ -896,8 +799,8 @@ export const caseStudies: CaseStudy[] = [
 			"BFF Pattern",
 		],
 		stats: [
-			{ num: "100K+", label: "Concurrent users at peak" },
-			{ num: "10K+", label: "Students processed" },
+			{ num: "25K+", label: "Concurrent users at peak" },
+			{ num: "500K+", label: "Students processed" },
 			{ num: "1", label: "Government program" },
 		],
 		sections: [
@@ -907,7 +810,7 @@ export const caseStudies: CaseStudy[] = [
 				blocks: [
 					{
 						kind: "p",
-						html: "Built the public-facing portal and admissions pipeline for the Governor Sindh IT Initiative — application, cohort assignment, attendance, certification. At peak load it served <strong>100K+ concurrent users</strong> during result announcements.",
+						html: "Built the public-facing portal and admissions pipeline for the Governor Sindh IT Initiative — application, cohort assignment, attendance, certification. At peak load it served <strong>25K+ concurrent users</strong> during result announcements.",
 					},
 				],
 			},
@@ -934,7 +837,7 @@ export const caseStudies: CaseStudy[] = [
 						kind: "results",
 						items: [
 							{
-								headline: "Held under 100K+ concurrent load",
+								headline: "Held under 25K+ concurrent load",
 								detail: "Result-day traffic didn't take the site down — caching and BFF design absorbed the spike.",
 							},
 							{

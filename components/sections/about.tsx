@@ -10,17 +10,17 @@ const stanzas = [
 		heading: (
 			<>
 				Three years.{" "}
-				<span className="text-fg-muted">Production systems.</span>{" "}
-				Real users.
+				<span className="text-fg-muted">Production systems.</span> Real
+				users.
 			</>
 		),
 		body: (
 			<>
-				At <span className="text-fg">Mahaana (YC W22)</span> I architect
-				the customer & corporate SPAs that 15,000+ Pakistani savers use
-				to onboard their pension. Before that I led{" "}
-				<span className="text-fg">Automily</span> at mParsec — a GenAI
-				QA-automation platform — and shipped{" "}
+				At <span className="text-fg">Mahaana (YC W22)</span> I
+				architected the customer & corporate SPAs that 15,000+ Pakistani
+				savers used to onboard their save+ and pension accounts. Before
+				that I led <span className="text-fg">Automily</span> at mParsec
+				— a GenAI QA-automation platform — and shipped{" "}
 				<span className="text-fg">DreamStream</span>, the IFE platform
 				now flying on PIA aircraft.
 			</>
@@ -49,7 +49,9 @@ const stanzas = [
 		heading: (
 			<>
 				I work best with people who care about{" "}
-				<span className="text-gradient">UX as much as system design.</span>
+				<span className="text-gradient">
+					UX as much as system design.
+				</span>
 			</>
 		),
 		body: (
@@ -72,7 +74,8 @@ export function About() {
 			eyebrow="// about"
 			title={
 				<>
-					I build software that <span className="text-gradient">ships</span>.
+					I build software that{" "}
+					<span className="text-gradient">ships</span>.
 				</>
 			}
 			intro="My resume in three stanzas. Scroll."
@@ -109,7 +112,10 @@ export function About() {
 						</p>
 						<p className="mt-3 font-display text-h3 text-fg leading-tight">
 							Providing services as a freelance{" "}
-							<span className="text-accent">software engineer</span>.
+							<span className="text-accent">
+								software engineer
+							</span>
+							.
 						</p>
 						<dl className="mt-6 space-y-3 text-caption">
 							<div className="flex justify-between gap-4">
@@ -124,9 +130,7 @@ export function About() {
 							</div>
 							<div className="flex justify-between gap-4">
 								<dt className="text-fg-subtle">Availability</dt>
-								<dd className="text-success">
-									Open to work
-								</dd>
+								<dd className="text-success">Open to work</dd>
 							</div>
 						</dl>
 					</motion.div>
