@@ -3,8 +3,8 @@ export const sectionNav = [
 	{ id: "skills", label: "Skills" },
 	{ id: "experience", label: "Experience" },
 	{ id: "case-studies", label: "Case Studies" },
-	{ id: "hackathons", label: "Hackathons" },
-	{ id: "demos", label: "Demos" },
+	// { id: "hackathons", label: "Hackathons" },
+	// { id: "demos", label: "Demos" },
 	{ id: "contact", label: "Contact" },
 ] as const;
 
